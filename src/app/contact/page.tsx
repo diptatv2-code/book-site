@@ -41,24 +41,24 @@ export default function ContactPage() {
   }
 
   return (
-    <>
+    <div className="bg-cream">
       {/* Toast */}
       {toast && (
         <div className="fixed right-4 top-20 z-50 animate-fade-in-up">
           <div
-            className={`rounded-lg border px-6 py-4 font-ui text-sm shadow-lg backdrop-blur-md ${
+            className={`rounded-lg border px-6 py-4 font-ui text-sm shadow-lg ${
               status === "success"
-                ? "border-green-500/30 bg-green-900/80 text-green-100"
-                : "border-red-500/30 bg-red-900/80 text-red-100"
+                ? "border-green-300 bg-green-50 text-green-800"
+                : "border-red-300 bg-red-50 text-red-800"
             }`}
           >
             <div className="flex items-center gap-3">
               {status === "success" ? (
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               ) : (
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="h-5 w-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                 </svg>
               )}
@@ -78,13 +78,13 @@ export default function ContactPage() {
 
       {/* Header */}
       <section className="relative overflow-hidden py-20">
-        <div className="geometric-pattern absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+        <div className="geometric-pattern absolute inset-0 opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-gold sm:text-5xl">
+          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-burgundy sm:text-5xl">
             Contact & Feedback
           </h1>
-          <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold/40" />
+          <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold" />
           <p className="animate-fade-in-up delay-200 mt-6 font-body text-lg text-text-muted">
             We would love to hear from you. Share your thoughts, ask questions, or provide
             feedback about the book.
@@ -97,15 +97,15 @@ export default function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Contact Info */}
             <div className="animate-slide-in-left lg:col-span-2">
-              <h2 className="font-heading text-2xl font-bold text-text">Get in Touch</h2>
-              <div className="mt-2 h-0.5 w-12 rounded bg-gold/60" />
+              <h2 className="font-heading text-2xl font-bold text-navy">Get in Touch</h2>
+              <div className="mt-2 h-0.5 w-12 rounded bg-gold" />
 
               <div className="mt-8 space-y-6">
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gold/10">
+                {/* Email Card */}
+                <div className="warm-card flex items-start gap-4 p-5">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-navy/10">
                     <svg
-                      className="h-6 w-6 text-gold"
+                      className="h-6 w-6 text-navy"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -122,18 +122,18 @@ export default function ContactPage() {
                     <p className="font-ui text-sm font-semibold text-text">Email</p>
                     <a
                       href="mailto:tquadirchoudhury@yahoo.com"
-                      className="mt-1 block font-body text-base text-text-muted transition-colors hover:text-gold"
+                      className="mt-1 block font-body text-base text-text-muted transition-colors hover:text-burgundy"
                     >
                       tquadirchoudhury@yahoo.com
                     </a>
                   </div>
                 </div>
 
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gold/10">
+                {/* Phone Card */}
+                <div className="warm-card flex items-start gap-4 p-5">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-navy/10">
                     <svg
-                      className="h-6 w-6 text-gold"
+                      className="h-6 w-6 text-navy"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -150,7 +150,7 @@ export default function ContactPage() {
                     <p className="font-ui text-sm font-semibold text-text">Phone</p>
                     <a
                       href="tel:+8801552389972"
-                      className="mt-1 block font-body text-base text-text-muted transition-colors hover:text-gold"
+                      className="mt-1 block font-body text-base text-text-muted transition-colors hover:text-burgundy"
                     >
                       +880 1552389972
                     </a>
@@ -158,7 +158,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Note */}
-                <div className="mt-8 rounded-lg border border-border/30 bg-card/20 p-5">
+                <div className="rounded-lg border border-gold/30 bg-parchment/50 p-5">
                   <p className="font-body text-sm leading-relaxed text-text-muted">
                     Your feedback helps us improve. Whether you have questions about the book,
                     want to arrange a speaking event, or simply want to share how the book has
@@ -170,117 +170,119 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="animate-slide-in-right lg:col-span-3">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid gap-6 sm:grid-cols-2">
+              <div className="warm-card p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block font-ui text-sm font-medium text-text"
+                      >
+                        Name <span className="text-burgundy">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        required
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="mt-2 block w-full rounded-lg border border-border-light bg-white px-4 py-3 font-body text-base text-text placeholder-text-light outline-none transition-all focus:border-burgundy/40 focus:ring-2 focus:ring-burgundy/20"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block font-ui text-sm font-medium text-text"
+                      >
+                        Email <span className="text-burgundy">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="mt-2 block w-full rounded-lg border border-border-light bg-white px-4 py-3 font-body text-base text-text placeholder-text-light outline-none transition-all focus:border-burgundy/40 focus:ring-2 focus:ring-burgundy/20"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
-                      htmlFor="name"
-                      className="block font-ui text-sm font-medium text-text-muted"
+                      htmlFor="subject"
+                      className="block font-ui text-sm font-medium text-text"
                     >
-                      Name <span className="text-gold">*</span>
+                      Subject <span className="text-burgundy">*</span>
                     </label>
                     <input
                       type="text"
-                      id="name"
+                      id="subject"
                       required
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="mt-2 block w-full rounded-lg border border-border/50 bg-card/30 px-4 py-3 font-body text-base text-text placeholder-text-muted/50 outline-none transition-colors focus:border-gold/60 focus:ring-1 focus:ring-gold/30"
-                      placeholder="Your name"
+                      value={form.subject}
+                      onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                      className="mt-2 block w-full rounded-lg border border-border-light bg-white px-4 py-3 font-body text-base text-text placeholder-text-light outline-none transition-all focus:border-burgundy/40 focus:ring-2 focus:ring-burgundy/20"
+                      placeholder="What is this regarding?"
                     />
                   </div>
+
                   <div>
                     <label
-                      htmlFor="email"
-                      className="block font-ui text-sm font-medium text-text-muted"
+                      htmlFor="message"
+                      className="block font-ui text-sm font-medium text-text"
                     >
-                      Email <span className="text-gold">*</span>
+                      Message <span className="text-burgundy">*</span>
                     </label>
-                    <input
-                      type="email"
-                      id="email"
+                    <textarea
+                      id="message"
                       required
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="mt-2 block w-full rounded-lg border border-border/50 bg-card/30 px-4 py-3 font-body text-base text-text placeholder-text-muted/50 outline-none transition-colors focus:border-gold/60 focus:ring-1 focus:ring-gold/30"
-                      placeholder="your@email.com"
+                      rows={6}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="mt-2 block w-full resize-none rounded-lg border border-border-light bg-white px-4 py-3 font-body text-base text-text placeholder-text-light outline-none transition-all focus:border-burgundy/40 focus:ring-2 focus:ring-burgundy/20"
+                      placeholder="Share your thoughts, feedback, or questions..."
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block font-ui text-sm font-medium text-text-muted"
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="inline-flex w-full items-center justify-center rounded-lg bg-burgundy px-8 py-3.5 font-ui text-sm font-semibold text-white shadow-md transition-all hover:bg-burgundy-light hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
                   >
-                    Subject <span className="text-gold">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    required
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="mt-2 block w-full rounded-lg border border-border/50 bg-card/30 px-4 py-3 font-body text-base text-text placeholder-text-muted/50 outline-none transition-colors focus:border-gold/60 focus:ring-1 focus:ring-gold/30"
-                    placeholder="What is this regarding?"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block font-ui text-sm font-medium text-text-muted"
-                  >
-                    Message <span className="text-gold">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    required
-                    rows={6}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="mt-2 block w-full resize-none rounded-lg border border-border/50 bg-card/30 px-4 py-3 font-body text-base text-text placeholder-text-muted/50 outline-none transition-colors focus:border-gold/60 focus:ring-1 focus:ring-gold/30"
-                    placeholder="Share your thoughts, feedback, or questions..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="gold-glow inline-flex w-full items-center justify-center rounded-lg bg-gold px-8 py-3.5 font-ui text-sm font-semibold text-[#0a0a0a] transition-all hover:bg-gold-light disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
-                >
-                  {status === "loading" ? (
-                    <>
-                      <svg
-                        className="-ml-1 mr-2 h-4 w-4 animate-spin"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        />
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        />
-                      </svg>
-                      Sending...
-                    </>
-                  ) : (
-                    "Send Message"
-                  )}
-                </button>
-              </form>
+                    {status === "loading" ? (
+                      <>
+                        <svg
+                          className="-ml-1 mr-2 h-4 w-4 animate-spin"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          />
+                        </svg>
+                        Sending...
+                      </>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

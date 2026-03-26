@@ -113,15 +113,14 @@ export default function ContentsPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden py-20">
-        <div className="geometric-pattern absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20">
+        <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-gold sm:text-5xl">
+          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-[#8B1A2B] sm:text-5xl">
             Table of Contents
           </h1>
-          <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold/40" />
-          <p className="animate-fade-in-up delay-200 mt-6 font-body text-lg text-text-muted">
+          <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
+          <p className="animate-fade-in-up delay-200 mt-6 font-body text-lg text-[#6B5E56]">
             Explore the chapters and discover what awaits inside this remarkable journey through
             the Quran.
           </p>
@@ -129,9 +128,9 @@ export default function ContentsPage() {
       </section>
 
       {/* Preview Blurb */}
-      <section className="pb-12">
+      <section className="bg-[#EDE8E0] py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="animate-fade-in-up gold-glow rounded-xl border border-border/50 bg-card/30 p-8 sm:p-10">
+          <div className="animate-fade-in-up warm-card p-8 sm:p-10">
             <div className="flex items-start gap-6">
               <div className="hidden flex-shrink-0 sm:block">
                 <Image
@@ -143,8 +142,9 @@ export default function ContentsPage() {
                 />
               </div>
               <div>
-                <h2 className="font-heading text-xl font-bold text-gold">From the Introduction</h2>
-                <p className="mt-3 font-body text-base leading-relaxed text-text-muted">
+                <h2 className="font-heading text-xl font-bold text-[#1B2A4A]">From the Introduction</h2>
+                <div className="mt-2 h-0.5 w-10 rounded bg-[#C9A84C]/50" />
+                <p className="mt-3 font-body text-base leading-relaxed text-[#6B5E56]">
                   With a unique construct and presentation, this book is a short and interesting
                   read highlighting some of the major themes of the Quran. It introduces the
                   reader to the gems hidden within its verses -- from scientific references that
@@ -161,32 +161,33 @@ export default function ContentsPage() {
       {/* Chapters */}
       <section className="py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-text sm:text-3xl">
+          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-[#1B2A4A] sm:text-3xl">
             Chapters
           </h2>
-          <div className="mt-2 h-0.5 w-12 rounded bg-gold/60" />
+          <div className="mt-2 h-0.5 w-12 rounded bg-[#C9A84C]/60" />
 
           <div className="mt-8 space-y-4">
             {chapters.map((chapter, i) => (
               <div
                 key={chapter.number}
-                className={`animate-fade-in-up delay-${Math.min((i + 1) * 100, 800)} group rounded-xl border border-border/30 bg-card/20 p-6 transition-all duration-300 hover:border-gold/30 hover:bg-card/40`}
+                className={`animate-fade-in-up delay-${Math.min((i + 1) * 100, 800)} warm-card group p-6`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-4">
-                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gold/10 font-heading text-lg font-bold text-gold transition-colors group-hover:bg-gold/20">
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#8B1A2B]/10 font-heading text-lg font-bold text-[#8B1A2B] transition-colors group-hover:bg-[#8B1A2B]/15">
                       {chapter.number}
                     </span>
                     <div>
-                      <h3 className="font-heading text-lg font-semibold text-text transition-colors group-hover:text-gold">
+                      <h3 className="font-heading text-lg font-semibold text-[#1B2A4A] transition-colors group-hover:text-[#8B1A2B]">
                         {chapter.title}
                       </h3>
-                      <p className="mt-1 font-body text-sm leading-relaxed text-text-muted">
+                      <div className="mt-1.5 mb-1.5 h-px w-8 bg-[#C9A84C]/40" />
+                      <p className="font-body text-sm leading-relaxed text-[#6B5E56]">
                         {chapter.description}
                       </p>
                     </div>
                   </div>
-                  <span className="flex-shrink-0 font-ui text-sm tabular-nums text-text-muted">
+                  <span className="flex-shrink-0 rounded-full bg-[#EDE8E0] px-3 py-1 font-ui text-xs tabular-nums text-[#8A7E76]">
                     p. {chapter.page}
                   </span>
                 </div>
@@ -199,32 +200,33 @@ export default function ContentsPage() {
       {/* Appendices */}
       <section className="py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-text sm:text-3xl">
+          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-[#1B2A4A] sm:text-3xl">
             Appendices
           </h2>
-          <div className="mt-2 h-0.5 w-12 rounded bg-gold/60" />
+          <div className="mt-2 h-0.5 w-12 rounded bg-[#C9A84C]/60" />
 
           <div className="mt-8 space-y-4">
             {appendices.map((appendix, i) => (
               <div
                 key={appendix.letter}
-                className={`animate-fade-in-up delay-${Math.min((i + 1) * 100, 800)} group rounded-xl border border-border/30 bg-card/20 p-6 transition-all duration-300 hover:border-gold/30 hover:bg-card/40`}
+                className={`animate-fade-in-up delay-${Math.min((i + 1) * 100, 800)} warm-card group p-6`}
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-4">
-                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gold/10 font-heading text-lg font-bold text-gold transition-colors group-hover:bg-gold/20">
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#8B1A2B]/10 font-heading text-lg font-bold text-[#8B1A2B] transition-colors group-hover:bg-[#8B1A2B]/15">
                       {appendix.letter}
                     </span>
                     <div>
-                      <h3 className="font-heading text-lg font-semibold text-text transition-colors group-hover:text-gold">
+                      <h3 className="font-heading text-lg font-semibold text-[#1B2A4A] transition-colors group-hover:text-[#8B1A2B]">
                         {appendix.title}
                       </h3>
-                      <p className="mt-1 font-body text-sm leading-relaxed text-text-muted">
+                      <div className="mt-1.5 mb-1.5 h-px w-8 bg-[#C9A84C]/40" />
+                      <p className="font-body text-sm leading-relaxed text-[#6B5E56]">
                         {appendix.description}
                       </p>
                     </div>
                   </div>
-                  <span className="flex-shrink-0 font-ui text-sm tabular-nums text-text-muted">
+                  <span className="flex-shrink-0 rounded-full bg-[#EDE8E0] px-3 py-1 font-ui text-xs tabular-nums text-[#8A7E76]">
                     p. {appendix.page}
                   </span>
                 </div>
@@ -238,22 +240,22 @@ export default function ContentsPage() {
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <div className="section-divider mb-12" />
-          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-gold sm:text-3xl">
+          <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-[#8B1A2B] sm:text-3xl">
             Ready to Begin?
           </h2>
-          <p className="animate-fade-in-up delay-200 mt-4 font-body text-base text-text-muted">
+          <p className="animate-fade-in-up delay-200 mt-4 font-body text-base text-[#6B5E56]">
             Get your copy and embark on this enlightening journey through the Quran.
           </p>
           <div className="animate-fade-in-up delay-300 mt-6 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/#where-to-buy"
-              className="gold-glow inline-flex items-center justify-center rounded-full bg-gold px-8 py-3.5 font-ui text-sm font-semibold text-[#0a0a0a] transition-all hover:bg-gold-light"
+              className="inline-flex items-center justify-center rounded-full bg-[#8B1A2B] px-8 py-3.5 font-ui text-sm font-semibold text-white shadow-lg shadow-[#8B1A2B]/20 transition-all hover:bg-[#A63244] hover:shadow-xl"
             >
               Buy Now
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center justify-center rounded-full border border-gold/40 px-8 py-3.5 font-ui text-sm font-semibold text-gold transition-all hover:border-gold hover:bg-gold/10"
+              className="inline-flex items-center justify-center rounded-full border-2 border-[#C9A84C] px-8 py-3.5 font-ui text-sm font-semibold text-[#C9A84C] transition-all hover:bg-[#C9A84C] hover:text-white"
             >
               About the Author
             </Link>

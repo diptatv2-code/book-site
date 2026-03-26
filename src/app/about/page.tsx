@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="bg-cream">
       {/* Header */}
       <section className="relative overflow-hidden py-20">
-        <div className="geometric-pattern absolute inset-0 opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+        <div className="geometric-pattern absolute inset-0 opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-gold sm:text-5xl">
+          <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-burgundy sm:text-5xl">
             About
           </h1>
-          <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold/40" />
+          <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold" />
         </div>
       </section>
 
@@ -30,13 +30,13 @@ export default function AboutPage() {
             {/* Book Cover */}
             <div className="animate-slide-in-left lg:col-span-2">
               <div className="relative mx-auto max-w-sm">
-                <div className="absolute -inset-2 rounded-xl bg-gradient-to-b from-gold/10 via-transparent to-gold/5 blur-sm" />
+                <div className="absolute -inset-3 rounded-xl bg-gradient-to-b from-gold/10 via-parchment/40 to-gold/5 blur-md" />
                 <Image
                   src="/images/book-cover-front.jpg"
                   alt="A Short Journey Through The Quran - Front Cover"
                   width={500}
                   height={793}
-                  className="relative rounded-lg shadow-2xl shadow-gold/10"
+                  className="relative rounded-lg shadow-[0_8px_40px_rgba(44,36,32,0.2)]"
                   style={{ width: "100%", height: "auto" }}
                 />
               </div>
@@ -44,10 +44,10 @@ export default function AboutPage() {
 
             {/* About the Book */}
             <div className="animate-slide-in-right lg:col-span-3">
-              <h2 className="font-heading text-3xl font-bold text-gold sm:text-4xl">
+              <h2 className="font-heading text-3xl font-bold text-burgundy sm:text-4xl">
                 About the Book
               </h2>
-              <div className="mt-3 h-1 w-16 rounded bg-gold/40" />
+              <div className="mt-3 h-1 w-16 rounded bg-gold" />
 
               <div className="mt-8 space-y-5">
                 <p className="font-body text-lg leading-relaxed text-text-muted">
@@ -91,18 +91,18 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="font-heading text-3xl font-bold text-gold sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
               About the Author
             </h2>
-            <div className="mt-3 h-1 w-16 rounded bg-gold/40" />
+            <div className="mt-3 h-1 w-16 rounded bg-gold" />
           </div>
 
-          <div className="animate-fade-in-up delay-200 mt-8 rounded-xl border border-border/50 bg-card/30 p-8 sm:p-10">
+          <div className="warm-card animate-fade-in-up delay-200 mt-8 p-8 sm:p-10">
             <div className="flex items-start gap-6">
               <div className="hidden flex-shrink-0 sm:block">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gold/10">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-navy/10 border border-navy/20">
                   <svg
-                    className="h-10 w-10 text-gold"
+                    className="h-10 w-10 text-navy"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -148,20 +148,19 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
-            <h2 className="font-heading text-2xl font-bold text-gold sm:text-3xl">
+            <h2 className="font-heading text-2xl font-bold text-burgundy sm:text-3xl">
               The Full Cover
             </h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold/40" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded bg-gold" />
           </div>
           <div className="animate-fade-in-up delay-200 mt-10">
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-b from-gold/10 via-transparent to-gold/5 blur-sm" />
+            <div className="warm-card relative overflow-hidden p-3 sm:p-4">
               <Image
                 src="/images/book-cover-full.jpg"
                 alt="A Short Journey Through The Quran - Full Book Cover Spread"
                 width={3000}
                 height={2000}
-                className="relative rounded-xl shadow-2xl shadow-gold/10"
+                className="rounded-lg"
                 style={{ width: "100%", height: "auto" }}
               />
             </div>
@@ -173,29 +172,30 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <div className="section-divider mb-12" />
-          <h2 className="animate-fade-in-up font-heading text-2xl font-bold sm:text-3xl">
-            Interested in{" "}
-            <span className="gold-shimmer">the Book</span>?
-          </h2>
-          <p className="animate-fade-in-up delay-200 mt-4 font-body text-base text-text-muted">
-            Get your copy or reach out to the author directly.
-          </p>
-          <div className="animate-fade-in-up delay-300 mt-6 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/#where-to-buy"
-              className="gold-glow inline-flex items-center justify-center rounded-full bg-gold px-8 py-3.5 font-ui text-sm font-semibold text-[#0a0a0a] transition-all hover:bg-gold-light"
-            >
-              Buy Now
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-gold/40 px-8 py-3.5 font-ui text-sm font-semibold text-gold transition-all hover:border-gold hover:bg-gold/10"
-            >
-              Contact
-            </Link>
+          <div className="rounded-2xl bg-parchment p-10 sm:p-14">
+            <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-navy sm:text-3xl">
+              Interested in the Book?
+            </h2>
+            <p className="animate-fade-in-up delay-200 mt-4 font-body text-base text-text-muted">
+              Get your copy or reach out to the author directly.
+            </p>
+            <div className="animate-fade-in-up delay-300 mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                href="/#where-to-buy"
+                className="inline-flex items-center justify-center rounded-lg bg-burgundy px-8 py-3.5 font-ui text-sm font-semibold text-white shadow-md transition-all hover:bg-burgundy-light hover:shadow-lg"
+              >
+                Buy Now
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-lg border-2 border-burgundy/30 px-8 py-3.5 font-ui text-sm font-semibold text-burgundy transition-all hover:border-burgundy hover:bg-burgundy/5"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

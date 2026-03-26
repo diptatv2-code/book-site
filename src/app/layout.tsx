@@ -131,16 +131,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#0a0a0a] text-[#f5f5f5]">
+      <body className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#2C2420]">
         <VisitorTracker />
 
         {/* Navbar */}
-        <nav className="sticky top-0 z-50 border-b border-border/50 bg-[#0a0a0a]/90 backdrop-blur-md">
+        <nav className="sticky top-0 z-50 border-b border-[#DDD5CC]/60 bg-[#FAF8F5]/95 backdrop-blur-md">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <Link
                 href="/"
-                className="font-heading text-lg font-bold text-gold transition-colors hover:text-gold-light sm:text-xl"
+                className="font-heading text-lg font-bold text-[#2C2420] transition-colors hover:text-[#8B1A2B] sm:text-xl"
               >
                 A Short Journey Through The Quran
               </Link>
@@ -151,7 +151,7 @@ export default function RootLayout({
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="font-ui text-sm font-medium text-text-muted transition-colors hover:text-gold"
+                    className="font-ui text-sm font-medium text-[#6B5E56] transition-colors hover:text-[#8B1A2B]"
                   >
                     {link.label}
                   </Link>
@@ -168,22 +168,22 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         {/* Footer */}
-        <footer className="border-t border-border/50 bg-[#060608]">
+        <footer className="bg-[#1B2A4A]">
           <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid gap-8 md:grid-cols-3">
               {/* Brand */}
               <div>
-                <h3 className="font-heading text-lg font-bold text-gold">
+                <h3 className="font-heading text-lg font-bold text-[#FAF8F5]">
                   A Short Journey Through The Quran
                 </h3>
-                <p className="mt-2 font-body text-sm text-text-muted">
+                <p className="mt-2 font-body text-sm text-[#FAF8F5]/70">
                   An Introduction by Tanbirul Quadir Choudhury
                 </p>
               </div>
 
               {/* Quick Links */}
               <div>
-                <h4 className="font-ui text-sm font-semibold uppercase tracking-wider text-gold-light">
+                <h4 className="font-ui text-sm font-semibold uppercase tracking-wider text-[#C9A84C]">
                   Quick Links
                 </h4>
                 <ul className="mt-3 space-y-2">
@@ -191,7 +191,7 @@ export default function RootLayout({
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="font-ui text-sm text-text-muted transition-colors hover:text-gold"
+                        className="font-ui text-sm text-[#FAF8F5]/70 transition-colors hover:text-[#C9A84C]"
                       >
                         {link.label}
                       </Link>
@@ -202,20 +202,20 @@ export default function RootLayout({
 
               {/* Contact */}
               <div>
-                <h4 className="font-ui text-sm font-semibold uppercase tracking-wider text-gold-light">
+                <h4 className="font-ui text-sm font-semibold uppercase tracking-wider text-[#C9A84C]">
                   Contact
                 </h4>
-                <ul className="mt-3 space-y-2 font-ui text-sm text-text-muted">
+                <ul className="mt-3 space-y-2 font-ui text-sm text-[#FAF8F5]/70">
                   <li>
                     <a
                       href="mailto:tquadirchoudhury@yahoo.com"
-                      className="transition-colors hover:text-gold"
+                      className="transition-colors hover:text-[#C9A84C]"
                     >
                       tquadirchoudhury@yahoo.com
                     </a>
                   </li>
                   <li>
-                    <a href="tel:+8801552389972" className="transition-colors hover:text-gold">
+                    <a href="tel:+8801552389972" className="transition-colors hover:text-[#C9A84C]">
                       +880 1552389972
                     </a>
                   </li>
@@ -223,19 +223,19 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="section-divider mt-8" />
+            <div className="mt-8 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
             <div className="mt-6 flex flex-col items-center justify-between gap-3 sm:flex-row">
-              <p className="font-ui text-xs text-text-muted">
+              <p className="font-ui text-xs text-[#FAF8F5]/50">
                 &copy; 2026 Tanbirul Quadir Choudhury. All rights reserved.
               </p>
-              <p className="font-ui text-xs text-text-muted">
+              <p className="font-ui text-xs text-[#FAF8F5]/50">
                 Website by{" "}
                 <a
                   href="https://diptait.com.bd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gold transition-colors hover:text-gold-light"
+                  className="text-[#C9A84C] transition-colors hover:text-[#E2D5A8]"
                 >
                   DIPTAIT
                 </a>
@@ -257,17 +257,17 @@ function MobileMenu() {
         className="flex cursor-pointer flex-col gap-1.5 p-2"
         aria-label="Toggle navigation menu"
       >
-        <span className="block h-0.5 w-6 bg-text-muted transition-all peer-checked:translate-y-2 peer-checked:rotate-45" />
-        <span className="block h-0.5 w-6 bg-text-muted transition-all peer-checked:opacity-0" />
-        <span className="block h-0.5 w-6 bg-text-muted transition-all peer-checked:-translate-y-2 peer-checked:-rotate-45" />
+        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:translate-y-2 peer-checked:rotate-45" />
+        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:opacity-0" />
+        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:-translate-y-2 peer-checked:-rotate-45" />
       </label>
-      <div className="invisible absolute left-0 top-16 w-full border-b border-border/50 bg-[#0a0a0a]/95 opacity-0 backdrop-blur-md transition-all duration-300 peer-checked:visible peer-checked:opacity-100">
+      <div className="invisible absolute left-0 top-16 w-full border-b border-[#DDD5CC]/60 bg-[#FAF8F5]/98 opacity-0 backdrop-blur-md transition-all duration-300 peer-checked:visible peer-checked:opacity-100">
         <div className="flex flex-col gap-1 px-4 py-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-lg px-4 py-3 font-ui text-sm font-medium text-text-muted transition-colors hover:bg-card hover:text-gold"
+              className="rounded-lg px-4 py-3 font-ui text-sm font-medium text-[#6B5E56] transition-colors hover:bg-[#EDE8E0] hover:text-[#8B1A2B]"
             >
               {link.label}
             </Link>

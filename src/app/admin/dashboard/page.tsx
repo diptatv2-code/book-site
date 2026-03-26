@@ -53,30 +53,30 @@ interface StatsData {
 
 function CardSkeleton() {
   return (
-    <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 animate-pulse">
-      <div className="h-3 w-24 bg-[#2a2a2a] rounded mb-3" />
-      <div className="h-8 w-16 bg-[#2a2a2a] rounded" />
+    <div className="warm-card p-6 animate-pulse">
+      <div className="h-3 w-24 bg-[#EBE6E0] rounded mb-3" />
+      <div className="h-8 w-16 bg-[#EBE6E0] rounded" />
     </div>
   );
 }
 
 function ChartSkeleton() {
   return (
-    <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 animate-pulse">
-      <div className="h-4 w-40 bg-[#2a2a2a] rounded mb-6" />
-      <div className="h-72 bg-[#1a1a1a] rounded" />
+    <div className="warm-card p-6 animate-pulse">
+      <div className="h-4 w-40 bg-[#EBE6E0] rounded mb-6" />
+      <div className="h-72 bg-[#FAF8F5] rounded" />
     </div>
   );
 }
 
 function TableSkeleton() {
   return (
-    <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 animate-pulse">
-      <div className="h-4 w-32 bg-[#2a2a2a] rounded mb-4" />
+    <div className="warm-card p-6 animate-pulse">
+      <div className="h-4 w-32 bg-[#EBE6E0] rounded mb-4" />
       {[...Array(5)].map((_, i) => (
-        <div key={i} className="flex justify-between py-3 border-b border-[#1a1a1a]">
-          <div className="h-3 w-28 bg-[#2a2a2a] rounded" />
-          <div className="h-3 w-12 bg-[#2a2a2a] rounded" />
+        <div key={i} className="flex justify-between py-3 border-b border-[#EBE6E0]">
+          <div className="h-3 w-28 bg-[#EBE6E0] rounded" />
+          <div className="h-3 w-12 bg-[#EBE6E0] rounded" />
         </div>
       ))}
     </div>
@@ -85,13 +85,13 @@ function TableSkeleton() {
 
 function FeedbackSkeleton() {
   return (
-    <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 animate-pulse">
-      <div className="h-4 w-44 bg-[#2a2a2a] rounded mb-4" />
+    <div className="warm-card p-6 animate-pulse">
+      <div className="h-4 w-44 bg-[#EBE6E0] rounded mb-4" />
       {[...Array(3)].map((_, i) => (
-        <div key={i} className="py-4 border-b border-[#1a1a1a]">
-          <div className="h-3 w-40 bg-[#2a2a2a] rounded mb-2" />
-          <div className="h-3 w-64 bg-[#2a2a2a] rounded mb-2" />
-          <div className="h-3 w-48 bg-[#2a2a2a] rounded" />
+        <div key={i} className="py-4 border-b border-[#EBE6E0]">
+          <div className="h-3 w-40 bg-[#EBE6E0] rounded mb-2" />
+          <div className="h-3 w-64 bg-[#EBE6E0] rounded mb-2" />
+          <div className="h-3 w-48 bg-[#EBE6E0] rounded" />
         </div>
       ))}
     </div>
@@ -117,10 +117,10 @@ function CustomTooltip({
 }) {
   if (!active || !payload?.length) return null;
   return (
-    <div className="bg-[#1a1a1a] border border-[#333] rounded-lg px-4 py-3 shadow-xl">
-      <p className="text-[#888] text-xs mb-1">{label}</p>
+    <div className="bg-white border border-[#EBE6E0] rounded-lg px-4 py-3 shadow-lg">
+      <p className="text-[#6B5E56] text-xs mb-1 font-ui">{label}</p>
       {payload.map((entry, i) => (
-        <p key={i} className="text-sm" style={{ color: entry.color }}>
+        <p key={i} className="text-sm font-ui" style={{ color: entry.color }}>
           {entry.name}: <span className="font-semibold">{entry.value}</span>
         </p>
       ))}
@@ -181,6 +181,8 @@ export default function AdminDashboard() {
     router.push('/admin');
   };
 
+  const cardColors = ['text-[#8B1A2B]', 'text-[#1B2A4A]', 'text-[#C9A84C]', 'text-[#8B1A2B]'];
+
   const overviewCards = [
     { label: 'Total Visitors', value: stats?.totalVisitors ?? 0, icon: 'M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z' },
     { label: 'Today', value: stats?.todayVisitors ?? 0, icon: 'M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z' },
@@ -205,23 +207,23 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#FAF8F5]">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#1a1a1a]">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-[#EBE6E0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#c9a84c]/10 border border-[#c9a84c]/20 flex items-center justify-center">
-              <svg className="w-4 h-4 text-[#c9a84c]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+            <div className="w-8 h-8 rounded-lg bg-[#1B2A4A]/10 border border-[#1B2A4A]/20 flex items-center justify-center">
+              <svg className="w-4 h-4 text-[#1B2A4A]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
               </svg>
             </div>
-            <h1 className="text-lg font-semibold">Admin Dashboard</h1>
+            <h1 className="text-lg font-semibold text-[#1B2A4A] font-heading">Admin Dashboard</h1>
           </div>
           <div className="flex items-center gap-3">
             <button
               onClick={handleRefresh}
               disabled={refreshing}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] hover:bg-[#222] border border-[#333] rounded-lg text-sm text-[#ccc] transition-colors disabled:opacity-50"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-white hover:bg-[#FAF8F5] border border-[#DDD5CC] rounded-lg text-sm text-[#2C2420] transition-colors disabled:opacity-50 font-ui"
             >
               <svg className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M2.985 14.652" />
@@ -230,7 +232,7 @@ export default function AdminDashboard() {
             </button>
             <button
               onClick={handleLogout}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 rounded-lg text-sm text-red-400 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#8B1A2B]/10 hover:bg-[#8B1A2B]/15 border border-[#8B1A2B]/20 rounded-lg text-sm text-[#8B1A2B] transition-colors font-ui"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
@@ -244,22 +246,22 @@ export default function AdminDashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Overview Cards */}
         <section className="mb-8">
-          <h2 className="text-sm font-medium text-[#888] uppercase tracking-wider mb-4">Overview</h2>
+          <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {loadingStats
               ? [...Array(4)].map((_, i) => <CardSkeleton key={i} />)
-              : overviewCards.map((card) => (
+              : overviewCards.map((card, idx) => (
                   <div
                     key={card.label}
-                    className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 hover:border-[#c9a84c]/30 transition-colors"
+                    className="warm-card p-6"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm text-[#888]">{card.label}</span>
-                      <svg className="w-5 h-5 text-[#c9a84c]/50" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <span className="text-sm text-[#6B5E56] font-ui">{card.label}</span>
+                      <svg className="w-5 h-5 text-[#C9A84C]" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d={card.icon} />
                       </svg>
                     </div>
-                    <p className="text-3xl font-bold text-[#c9a84c]">
+                    <p className={`text-3xl font-bold font-heading ${cardColors[idx]}`}>
                       {card.value.toLocaleString()}
                     </p>
                   </div>
@@ -269,13 +271,13 @@ export default function AdminDashboard() {
 
         {/* Daily Chart */}
         <section className="mb-8">
-          <h2 className="text-sm font-medium text-[#888] uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">
             Daily Visitors (Last 30 Days)
           </h2>
           {loadingStats ? (
             <ChartSkeleton />
           ) : (
-            <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6">
+            <div className="warm-card p-6">
               {stats && stats.dailyStats.length > 0 ? (
                 <ResponsiveContainer width="100%" height={320}>
                   <LineChart
@@ -284,66 +286,66 @@ export default function AdminDashboard() {
                       dateLabel: formatDate(d.date),
                     }))}
                   >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" />
+                    <CartesianGrid strokeDasharray="3 3" stroke="#C9A84C" strokeOpacity={0.2} />
                     <XAxis
                       dataKey="dateLabel"
-                      stroke="#555"
-                      tick={{ fill: '#888', fontSize: 12 }}
-                      tickLine={{ stroke: '#333' }}
+                      stroke="#DDD5CC"
+                      tick={{ fill: '#6B5E56', fontSize: 12 }}
+                      tickLine={{ stroke: '#DDD5CC' }}
                     />
                     <YAxis
-                      stroke="#555"
-                      tick={{ fill: '#888', fontSize: 12 }}
-                      tickLine={{ stroke: '#333' }}
+                      stroke="#DDD5CC"
+                      tick={{ fill: '#6B5E56', fontSize: 12 }}
+                      tickLine={{ stroke: '#DDD5CC' }}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     <Line
                       type="monotone"
                       dataKey="total_visitors"
                       name="Total Visitors"
-                      stroke="#c9a84c"
+                      stroke="#8B1A2B"
                       strokeWidth={2}
-                      dot={{ fill: '#c9a84c', r: 3, strokeWidth: 0 }}
-                      activeDot={{ fill: '#c9a84c', r: 5, strokeWidth: 2, stroke: '#fff' }}
+                      dot={{ fill: '#8B1A2B', r: 3, strokeWidth: 0 }}
+                      activeDot={{ fill: '#8B1A2B', r: 5, strokeWidth: 2, stroke: '#FAF8F5' }}
                     />
                     <Line
                       type="monotone"
                       dataKey="unique_visitors"
                       name="Unique Visitors"
-                      stroke="#6b8f4c"
+                      stroke="#1B2A4A"
                       strokeWidth={2}
-                      dot={{ fill: '#6b8f4c', r: 3, strokeWidth: 0 }}
-                      activeDot={{ fill: '#6b8f4c', r: 5, strokeWidth: 2, stroke: '#fff' }}
+                      dot={{ fill: '#1B2A4A', r: 3, strokeWidth: 0 }}
+                      activeDot={{ fill: '#1B2A4A', r: 5, strokeWidth: 2, stroke: '#FAF8F5' }}
                     />
                     <Line
                       type="monotone"
                       dataKey="page_views"
                       name="Page Views"
-                      stroke="#4c7fc9"
+                      stroke="#C9A84C"
                       strokeWidth={2}
-                      dot={{ fill: '#4c7fc9', r: 3, strokeWidth: 0 }}
-                      activeDot={{ fill: '#4c7fc9', r: 5, strokeWidth: 2, stroke: '#fff' }}
+                      dot={{ fill: '#C9A84C', r: 3, strokeWidth: 0 }}
+                      activeDot={{ fill: '#C9A84C', r: 5, strokeWidth: 2, stroke: '#FAF8F5' }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
               ) : (
-                <div className="h-72 flex items-center justify-center text-[#555]">
+                <div className="h-72 flex items-center justify-center text-[#8A7E76] font-body">
                   No visitor data available yet
                 </div>
               )}
               {stats && stats.dailyStats.length > 0 && (
-                <div className="flex items-center gap-6 mt-4 pt-4 border-t border-[#1f1f1f]">
+                <div className="flex items-center gap-6 mt-4 pt-4 border-t border-[#EBE6E0]">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#c9a84c]" />
-                    <span className="text-xs text-[#888]">Total Visitors</span>
+                    <span className="w-3 h-3 rounded-full bg-[#8B1A2B]" />
+                    <span className="text-xs text-[#6B5E56] font-ui">Total Visitors</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#6b8f4c]" />
-                    <span className="text-xs text-[#888]">Unique Visitors</span>
+                    <span className="w-3 h-3 rounded-full bg-[#1B2A4A]" />
+                    <span className="text-xs text-[#6B5E56] font-ui">Unique Visitors</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-[#4c7fc9]" />
-                    <span className="text-xs text-[#888]">Page Views</span>
+                    <span className="w-3 h-3 rounded-full bg-[#C9A84C]" />
+                    <span className="text-xs text-[#6B5E56] font-ui">Page Views</span>
                   </div>
                 </div>
               )}
@@ -355,20 +357,20 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Country Stats */}
           <section>
-            <h2 className="text-sm font-medium text-[#888] uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">
               Top Countries
             </h2>
             {loadingStats ? (
               <TableSkeleton />
             ) : (
-              <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden">
+              <div className="warm-card overflow-hidden">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-[#2a2a2a]">
-                      <th className="text-left px-6 py-3 text-xs font-medium text-[#888] uppercase tracking-wider">
+                    <tr className="border-b border-[#EBE6E0]">
+                      <th className="text-left px-6 py-3 text-xs font-medium text-[#6B5E56] uppercase tracking-wider font-ui">
                         Country
                       </th>
-                      <th className="text-right px-6 py-3 text-xs font-medium text-[#888] uppercase tracking-wider">
+                      <th className="text-right px-6 py-3 text-xs font-medium text-[#6B5E56] uppercase tracking-wider font-ui">
                         Visitors
                       </th>
                     </tr>
@@ -378,18 +380,18 @@ export default function AdminDashboard() {
                       stats.countryStats.map((row, i) => (
                         <tr
                           key={row.country}
-                          className={`border-b border-[#1a1a1a] hover:bg-[#1a1a1a] transition-colors ${
-                            i === 0 ? 'bg-[#c9a84c]/5' : ''
+                          className={`border-b border-[#EBE6E0] transition-colors hover:bg-[#FAF8F5] ${
+                            i % 2 === 0 ? 'bg-white' : 'bg-[#FDFCFA]'
                           }`}
                         >
-                          <td className="px-6 py-3 text-sm text-[#ddd]">
+                          <td className="px-6 py-3 text-sm text-[#2C2420] font-body">
                             <span className="flex items-center gap-2">
-                              <span className="text-xs text-[#555] w-5">{i + 1}.</span>
+                              <span className="text-xs text-[#8A7E76] w-5 font-ui">{i + 1}.</span>
                               {row.country}
                             </span>
                           </td>
-                          <td className="px-6 py-3 text-sm text-right">
-                            <span className={i === 0 ? 'text-[#c9a84c] font-semibold' : 'text-[#aaa]'}>
+                          <td className="px-6 py-3 text-sm text-right font-ui">
+                            <span className={i === 0 ? 'text-[#8B1A2B] font-semibold' : 'text-[#6B5E56]'}>
                               {row.visitor_count.toLocaleString()}
                             </span>
                           </td>
@@ -397,7 +399,7 @@ export default function AdminDashboard() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={2} className="px-6 py-8 text-center text-[#555] text-sm">
+                        <td colSpan={2} className="px-6 py-8 text-center text-[#8A7E76] text-sm font-body">
                           No country data available
                         </td>
                       </tr>
@@ -410,20 +412,20 @@ export default function AdminDashboard() {
 
           {/* Page Views */}
           <section>
-            <h2 className="text-sm font-medium text-[#888] uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">
               Page Views
             </h2>
             {loadingStats ? (
               <TableSkeleton />
             ) : (
-              <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden">
+              <div className="warm-card overflow-hidden">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-[#2a2a2a]">
-                      <th className="text-left px-6 py-3 text-xs font-medium text-[#888] uppercase tracking-wider">
+                    <tr className="border-b border-[#EBE6E0]">
+                      <th className="text-left px-6 py-3 text-xs font-medium text-[#6B5E56] uppercase tracking-wider font-ui">
                         Page
                       </th>
-                      <th className="text-right px-6 py-3 text-xs font-medium text-[#888] uppercase tracking-wider">
+                      <th className="text-right px-6 py-3 text-xs font-medium text-[#6B5E56] uppercase tracking-wider font-ui">
                         Views
                       </th>
                     </tr>
@@ -433,17 +435,17 @@ export default function AdminDashboard() {
                       stats.pageViews.map((row, i) => (
                         <tr
                           key={row.page_path}
-                          className={`border-b border-[#1a1a1a] hover:bg-[#1a1a1a] transition-colors ${
-                            i === 0 ? 'bg-[#c9a84c]/5' : ''
+                          className={`border-b border-[#EBE6E0] transition-colors hover:bg-[#FAF8F5] ${
+                            i % 2 === 0 ? 'bg-white' : 'bg-[#FDFCFA]'
                           }`}
                         >
-                          <td className="px-6 py-3 text-sm">
-                            <code className="text-[#c9a84c]/80 bg-[#c9a84c]/5 px-2 py-0.5 rounded text-xs">
+                          <td className="px-6 py-3 text-sm font-body">
+                            <code className="text-[#1B2A4A] bg-[#1B2A4A]/5 px-2 py-0.5 rounded text-xs font-mono">
                               {row.page_path}
                             </code>
                           </td>
-                          <td className="px-6 py-3 text-sm text-right">
-                            <span className={i === 0 ? 'text-[#c9a84c] font-semibold' : 'text-[#aaa]'}>
+                          <td className="px-6 py-3 text-sm text-right font-ui">
+                            <span className={i === 0 ? 'text-[#8B1A2B] font-semibold' : 'text-[#6B5E56]'}>
                               {row.count.toLocaleString()}
                             </span>
                           </td>
@@ -451,7 +453,7 @@ export default function AdminDashboard() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={2} className="px-6 py-8 text-center text-[#555] text-sm">
+                        <td colSpan={2} className="px-6 py-8 text-center text-[#8A7E76] text-sm font-body">
                           No page view data available
                         </td>
                       </tr>
@@ -465,56 +467,54 @@ export default function AdminDashboard() {
 
         {/* Feedback Messages */}
         <section className="mb-8">
-          <h2 className="text-sm font-medium text-[#888] uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">
             Feedback Messages
           </h2>
           {loadingFeedback ? (
             <FeedbackSkeleton />
           ) : (
-            <div className="bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden">
+            <div className="space-y-4">
               {feedback.length > 0 ? (
-                <div className="divide-y divide-[#1a1a1a]">
-                  {feedback.map((msg) => (
-                    <div
-                      key={msg.id}
-                      className={`p-6 hover:bg-[#1a1a1a] transition-colors ${
-                        !msg.is_read ? 'border-l-2 border-l-[#c9a84c]' : 'border-l-2 border-l-transparent'
-                      }`}
-                    >
-                      <div className="flex items-start justify-between gap-4 mb-2">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-[#c9a84c]/10 flex items-center justify-center text-[#c9a84c] text-sm font-semibold">
-                            {msg.name.charAt(0).toUpperCase()}
-                          </div>
-                          <div>
-                            <span className="text-sm font-medium text-white">{msg.name}</span>
-                            <span className="text-xs text-[#666] ml-2">{msg.email}</span>
-                          </div>
+                feedback.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className={`warm-card p-6 ${
+                      !msg.is_read ? 'border-l-[3px] border-l-[#8B1A2B]' : ''
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-2">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-[#1B2A4A]/10 flex items-center justify-center text-[#1B2A4A] text-sm font-semibold font-ui">
+                          {msg.name.charAt(0).toUpperCase()}
                         </div>
-                        <div className="flex items-center gap-2">
-                          {!msg.is_read && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#c9a84c]/10 text-[#c9a84c] border border-[#c9a84c]/20">
-                              New
-                            </span>
-                          )}
-                          <span className="text-xs text-[#555]">
-                            {formatTimestamp(msg.created_at)}
-                          </span>
+                        <div>
+                          <span className="text-sm font-medium text-[#2C2420] font-ui">{msg.name}</span>
+                          <span className="text-xs text-[#8A7E76] ml-2 font-ui">{msg.email}</span>
                         </div>
                       </div>
-                      <h3 className={`text-sm mb-1 ${!msg.is_read ? 'font-semibold text-white' : 'text-[#bbb]'}`}>
-                        {msg.subject}
-                      </h3>
-                      <p className="text-sm text-[#888] leading-relaxed">{msg.message}</p>
+                      <div className="flex items-center gap-2">
+                        {!msg.is_read && (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#8B1A2B]/10 text-[#8B1A2B] border border-[#8B1A2B]/20 font-ui">
+                            New
+                          </span>
+                        )}
+                        <span className="text-xs text-[#8A7E76] font-ui">
+                          {formatTimestamp(msg.created_at)}
+                        </span>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                    <h3 className={`text-sm mb-1 font-heading ${!msg.is_read ? 'font-semibold text-[#2C2420]' : 'text-[#6B5E56]'}`}>
+                      {msg.subject}
+                    </h3>
+                    <p className="text-sm text-[#6B5E56] leading-relaxed font-body">{msg.message}</p>
+                  </div>
+                ))
               ) : (
-                <div className="p-12 text-center text-[#555]">
-                  <svg className="w-12 h-12 mx-auto mb-3 text-[#333]" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
+                <div className="warm-card p-12 text-center">
+                  <svg className="w-12 h-12 mx-auto mb-3 text-[#DDD5CC]" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                   </svg>
-                  <p className="text-sm">No feedback messages yet</p>
+                  <p className="text-sm text-[#8A7E76] font-body">No feedback messages yet</p>
                 </div>
               )}
             </div>
