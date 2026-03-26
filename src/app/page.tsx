@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-center overflow-hidden">
+      <section className="relative flex min-h-[85vh] items-center overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#EDE8E0]" />
         <div className="geometric-pattern absolute inset-0 opacity-60" />
@@ -38,24 +38,22 @@ export default function Home() {
         <div className="absolute bottom-1/4 left-0 h-px w-48 bg-gradient-to-r from-transparent to-[#8B1A2B]/15" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
-            {/* Book Cover with 3D effect */}
-            <div className="animate-fade-in-up book-3d flex-shrink-0">
+          <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
+            {/* Book Cover — Premium 3D standing book */}
+            <div className="animate-fade-in-up book-3d flex-shrink-0 pb-8">
               <div className="book-3d-inner relative">
-                {/* Book shadow */}
-                <div className="absolute -bottom-6 left-4 right-4 h-8 rounded-full bg-[#2C2420]/10 blur-2xl" />
-                {/* Book glow */}
-                <div className="absolute -inset-1 rounded-lg bg-gradient-to-b from-[#C9A84C]/15 via-transparent to-[#8B1A2B]/10 blur-sm" />
                 <Image
                   src="/images/book-cover-front.jpg"
                   alt="A Short Journey Through The Quran - Book Cover"
-                  width={400}
-                  height={635}
+                  width={380}
+                  height={600}
                   priority
-                  className="relative rounded-lg shadow-2xl shadow-[#2C2420]/20"
-                  style={{ width: "auto", height: "auto", maxWidth: "400px" }}
+                  className="relative z-10 rounded-l-sm rounded-r-none"
+                  style={{ width: "auto", height: "auto", maxWidth: "380px" }}
                 />
               </div>
+              {/* Floating shadow */}
+              <div className="book-shadow" />
             </div>
 
             {/* Hero Text */}
@@ -104,16 +102,16 @@ export default function Home() {
       </section>
 
       {/* Book Blurb Section */}
-      <section className="relative py-24">
+      <section className="relative py-14">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="section-divider mb-16" />
+          <div className="section-divider mb-10" />
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
               About This Book
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
           </div>
-          <div className="animate-fade-in-up delay-200 mt-12">
+          <div className="animate-fade-in-up delay-200 mt-8">
             <div className="warm-card accent-left p-8 sm:p-10">
               <div className="space-y-6">
                 <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
@@ -135,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Back Cover / Detailed Description */}
-      <section className="relative bg-[#EDE8E0] py-24">
+      <section className="relative bg-[#EDE8E0] py-14">
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -175,7 +173,7 @@ export default function Home() {
       </section>
 
       {/* Key Highlights */}
-      <section className="py-24">
+      <section className="py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
@@ -187,7 +185,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((item, i) => (
               <div
                 key={item.title}
@@ -210,7 +208,7 @@ export default function Home() {
       </section>
 
       {/* Where to Buy */}
-      <section id="where-to-buy" className="bg-[#EDE8E0] py-24">
+      <section id="where-to-buy" className="bg-[#EDE8E0] py-14">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#1B2A4A] sm:text-4xl">
@@ -222,7 +220,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {retailers.map((retailer, i) => (
               <a
                 key={retailer.name}
@@ -248,7 +246,7 @@ export default function Home() {
       </section>
 
       {/* Book Details */}
-      <section className="py-24">
+      <section className="py-14">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
@@ -257,7 +255,7 @@ export default function Home() {
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
           </div>
 
-          <div className="animate-fade-in-up delay-200 mt-12 warm-card overflow-hidden">
+          <div className="animate-fade-in-up delay-200 mt-8 warm-card overflow-hidden">
             <div className="grid divide-y divide-[#EBE6E0] sm:grid-cols-2 sm:divide-x sm:divide-y-0">
               {bookDetails.map((detail) => (
                 <div key={detail.label} className="flex items-center gap-4 p-6">
@@ -280,7 +278,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden py-14">
         <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8E0] via-[#F5F0E8] to-[#FAF8F5]" />
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

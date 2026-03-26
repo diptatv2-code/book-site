@@ -113,7 +113,7 @@ export default function ContentsPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#FAF8F5] py-14">
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="animate-fade-in-up font-heading text-4xl font-bold text-[#8B1A2B] sm:text-5xl">
