@@ -80,23 +80,15 @@ body::before {
 .delay-500 { animation-delay: 0.5s; }
 .delay-600 { animation-delay: 0.6s; }
 
-/* Book cover — shadow and hover directly on the image */
+/* Book cover image — just shadow, nothing else */
 .book-cover-clean {
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.3s, filter 0.3s;
 }
 .book-cover-clean:hover {
-  transform: rotateY(-3deg) translateY(-4px);
-  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.22));
-}
-
-/* Wrapper divs — only perspective, zero visual styling */
-.book-3d {
-  perspective: 1000px;
-}
-.book-3d-inner {
-  /* no background, no border, no shadow, no pseudo-elements */
+  transform: scale(1.02);
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.2));
 }
 
 .section-divider {

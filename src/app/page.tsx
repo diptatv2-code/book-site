@@ -40,7 +40,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
             {/* Book Cover — clean, image only */}
-            <div className="animate-fade-in-up book-3d flex-shrink-0">
+            <div className="animate-fade-in-up flex-shrink-0">
               <Image
                 src="/images/book-cover-front.jpg"
                 alt="A Short Journey Through The Quran - Book Cover"
