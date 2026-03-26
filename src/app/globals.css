@@ -82,8 +82,8 @@ body::before {
 
 /* Book cover image — just shadow, nothing else */
 .book-cover-clean {
+  border-radius: 6px;
   filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
-  border-radius: 4px;
   transition: transform 0.3s, filter 0.3s;
 }
 .book-cover-clean:hover {

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[85vh] items-center overflow-hidden">
+      <section className="relative flex min-h-[70vh] items-center overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#EDE8E0]" />
         <div className="geometric-pattern absolute inset-0 opacity-60" />
@@ -98,9 +98,9 @@ export default function Home() {
       </section>
 
       {/* Book Blurb Section */}
-      <section className="relative py-14">
+      <section className="relative py-8 sm:py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="section-divider mb-10" />
+          <div className="section-divider mb-6" />
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
               About This Book
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       {/* Back Cover / Detailed Description */}
-      <section className="relative bg-[#EDE8E0] py-14">
+      <section className="relative bg-[#EDE8E0] py-8 sm:py-10">
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
@@ -140,7 +140,7 @@ export default function Home() {
                 width={480}
                 height={800}
                 className="book-cover-clean mx-auto"
-                style={{ width: "auto", height: "auto", maxWidth: "480px" }}
+                style={{ width: "100%", height: "auto", maxWidth: "420px" }}
               />
             </div>
             <div className="animate-slide-in-right space-y-6">
@@ -169,7 +169,7 @@ export default function Home() {
       </section>
 
       {/* Key Highlights */}
-      <section className="py-14">
+      <section className="py-8 sm:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
@@ -181,20 +181,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
             {highlights.map((item, i) => (
               <div
                 key={item.title}
-                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group p-8`}
+                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group p-4 sm:p-6`}
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-[#8B1A2B]/10 text-2xl transition-colors group-hover:bg-[#8B1A2B]/15">
+                <div className="flex h-10 w-10 sm:h-14 sm:w-14 items-center justify-center rounded-lg bg-[#8B1A2B]/10 text-2xl transition-colors group-hover:bg-[#8B1A2B]/15">
                   {item.icon}
                 </div>
-                <h3 className="mt-5 font-heading text-xl font-bold text-[#2C2420]">
+                <h3 className="mt-3 sm:mt-5 font-heading text-base sm:text-xl font-bold text-[#2C2420]">
                   {item.title}
                 </h3>
                 <div className="mt-2 h-0.5 w-8 rounded bg-[#C9A84C]/40" />
-                <p className="mt-3 font-body text-sm leading-relaxed text-[#6B5E56]">
+                <p className="mt-2 sm:mt-3 font-body text-xs sm:text-sm leading-relaxed text-[#6B5E56]">
                   {item.description}
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Where to Buy */}
-      <section id="where-to-buy" className="bg-[#EDE8E0] py-14">
+      <section id="where-to-buy" className="bg-[#EDE8E0] py-8 sm:py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#1B2A4A] sm:text-4xl">
@@ -216,16 +216,16 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
             {retailers.map((retailer, i) => (
               <a
                 key={retailer.name}
                 href={retailer.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group flex flex-col items-center p-8 text-center`}
+                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group flex flex-col items-center p-4 sm:p-6 text-center`}
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#8B1A2B]/10 text-3xl transition-colors group-hover:bg-[#8B1A2B]/15">
+                <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#8B1A2B]/10 text-3xl transition-colors group-hover:bg-[#8B1A2B]/15">
                   {retailer.icon}
                 </div>
                 <h3 className="mt-4 font-heading text-lg font-bold text-[#2C2420]">
@@ -242,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* Book Details */}
-      <section className="py-14">
+      <section className="py-8 sm:py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
             <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
@@ -274,7 +274,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-14">
+      <section className="relative overflow-hidden py-8 sm:py-10">
         <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8E0] via-[#F5F0E8] to-[#FAF8F5]" />
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
