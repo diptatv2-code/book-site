@@ -16,30 +16,14 @@ export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => ({}));
     const pagePath = body.page_path || '/';
 
-    const forwarded = request.headers.get('x-forwarded-for');
-    const realIp = request.headers.get('x-real-ip');
-    const ip = forwarded?.split(',')[0]?.trim() || realIp || '127.0.0.1';
+    // Vercel built-in geolocation headers — free, fast, always works
+    const country = request.headers.get('x-vercel-ip-country') || 'Unknown';
+    const city = decodeURIComponent(request.headers.get('x-vercel-ip-city') || 'Unknown');
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'Unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
+    const referrer = request.headers.get('referer') || '';
 
     const sessionId = (await hashString(ip + userAgent)).slice(0, 32);
-
-    let country = 'Unknown';
-    let city = 'Unknown';
-
-    try {
-      const geoRes = await fetch(`http://ip-api.com/json/${ip}`, {
-        signal: AbortSignal.timeout(3000),
-      });
-      if (geoRes.ok) {
-        const geoData = await geoRes.json();
-        if (geoData.status === 'success') {
-          country = geoData.country || 'Unknown';
-          city = geoData.city || 'Unknown';
-        }
-      }
-    } catch {
-      // Geolocation lookup failed, use defaults
-    }
 
     // Insert visitor log
     await supabase.from('visitor_logs').insert({
@@ -49,22 +33,12 @@ export async function POST(request: NextRequest) {
       country,
       city,
       session_id: sessionId,
+      referrer,
     });
 
-    // Get today's date string
+    // Upsert daily stats
     const today = new Date().toISOString().split('T')[0];
 
-    // Check if this session_id already visited today
-    const { count: existingSessionCount } = await supabase
-      .from('visitor_logs')
-      .select('*', { count: 'exact', head: true })
-      .eq('session_id', sessionId)
-      .gte('created_at', `${today}T00:00:00.000Z`)
-      .lte('created_at', `${today}T23:59:59.999Z`);
-
-    const isNewSession = (existingSessionCount || 0) <= 1;
-
-    // Upsert daily stats
     const { data: existingDaily } = await supabase
       .from('visitor_stats_daily')
       .select('*')
@@ -72,16 +46,24 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (existingDaily) {
-      const updateData: Record<string, number> = {
-        total_visitors: (existingDaily.total_visitors || 0) + 1,
-        page_views: (existingDaily.page_views || 0) + 1,
-      };
-      if (isNewSession) {
-        updateData.unique_visitors = (existingDaily.unique_visitors || 0) + 1;
-      }
+      const { count: sessionCount } = await supabase
+        .from('visitor_logs')
+        .select('*', { count: 'exact', head: true })
+        .eq('session_id', sessionId)
+        .gte('created_at', `${today}T00:00:00.000Z`);
+
+      const isNew = (sessionCount || 0) <= 1;
+
       await supabase
         .from('visitor_stats_daily')
-        .update(updateData)
+        .update({
+          total_visitors: (existingDaily.total_visitors || 0) + 1,
+          page_views: (existingDaily.page_views || 0) + 1,
+          unique_visitors: isNew
+            ? (existingDaily.unique_visitors || 0) + 1
+            : existingDaily.unique_visitors || 0,
+          updated_at: new Date().toISOString(),
+        })
         .eq('date', today);
     } else {
       await supabase.from('visitor_stats_daily').insert({
@@ -93,28 +75,32 @@ export async function POST(request: NextRequest) {
     }
 
     // Upsert country stats
-    const { data: existingCountry } = await supabase
-      .from('visitor_stats_country')
-      .select('*')
-      .eq('country', country)
-      .single();
-
-    if (existingCountry) {
-      await supabase
+    if (country !== 'Unknown') {
+      const { data: existingCountry } = await supabase
         .from('visitor_stats_country')
-        .update({ visitor_count: (existingCountry.visitor_count || 0) + 1 })
-        .eq('country', country);
-    } else {
-      await supabase.from('visitor_stats_country').insert({
-        country,
-        visitor_count: 1,
-      });
+        .select('*')
+        .eq('country', country)
+        .single();
+
+      if (existingCountry) {
+        await supabase
+          .from('visitor_stats_country')
+          .update({
+            visitor_count: (existingCountry.visitor_count || 0) + 1,
+            last_visit: new Date().toISOString(),
+          })
+          .eq('country', country);
+      } else {
+        await supabase.from('visitor_stats_country').insert({
+          country,
+          visitor_count: 1,
+        });
+      }
     }
 
     return Response.json({ success: true });
   } catch (error) {
     console.error('Visitor tracking error:', error);
-    // Don't fail the request even if tracking errors occur
     return Response.json({ success: true });
   }
 }
