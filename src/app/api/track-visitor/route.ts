@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { supabase, supabaseAdmin } from '@/lib/supabase';
 import { type NextRequest } from 'next/server';
 
 export const dynamic = 'force-dynamic';
@@ -39,14 +39,14 @@ export async function POST(request: NextRequest) {
     // Upsert daily stats
     const today = new Date().toISOString().split('T')[0];
 
-    const { data: existingDaily } = await supabase
+    const { data: existingDaily } = await supabaseAdmin
       .from('visitor_stats_daily')
       .select('*')
       .eq('date', today)
       .single();
 
     if (existingDaily) {
-      const { count: sessionCount } = await supabase
+      const { count: sessionCount } = await supabaseAdmin
         .from('visitor_logs')
         .select('*', { count: 'exact', head: true })
         .eq('session_id', sessionId)
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
       const isNew = (sessionCount || 0) <= 1;
 
-      await supabase
+      await supabaseAdmin
         .from('visitor_stats_daily')
         .update({
           total_visitors: (existingDaily.total_visitors || 0) + 1,
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         })
         .eq('date', today);
     } else {
-      await supabase.from('visitor_stats_daily').insert({
+      await supabaseAdmin.from('visitor_stats_daily').insert({
         date: today,
         total_visitors: 1,
         unique_visitors: 1,
@@ -76,14 +76,14 @@ export async function POST(request: NextRequest) {
 
     // Upsert country stats
     if (country !== 'Unknown') {
-      const { data: existingCountry } = await supabase
+      const { data: existingCountry } = await supabaseAdmin
         .from('visitor_stats_country')
         .select('*')
         .eq('country', country)
         .single();
 
       if (existingCountry) {
-        await supabase
+        await supabaseAdmin
           .from('visitor_stats_country')
           .update({
             visitor_count: (existingCountry.visitor_count || 0) + 1,
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
           })
           .eq('country', country);
       } else {
-        await supabase.from('visitor_stats_country').insert({
+        await supabaseAdmin.from('visitor_stats_country').insert({
           country,
           visitor_count: 1,
         });
