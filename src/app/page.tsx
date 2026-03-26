@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative flex min-h-[70vh] items-center overflow-hidden">
+      <section className="relative flex min-h-[60vh] sm:min-h-[75vh] items-center overflow-hidden">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] via-[#F5F0E8] to-[#EDE8E0]" />
         <div className="geometric-pattern absolute inset-0 opacity-60" />
@@ -47,8 +47,8 @@ export default function Home() {
                 width={380}
                 height={600}
                 priority
-                className="book-cover-clean"
-                style={{ width: "auto", height: "auto", maxWidth: "380px" }}
+                className="book-cover-clean max-h-[400px] sm:max-h-none w-auto"
+                style={{ height: "auto", maxWidth: "380px" }}
               />
             </div>
 
@@ -70,7 +70,7 @@ export default function Home() {
                 An Introduction
               </p>
 
-              <p className="animate-fade-in-up delay-400 mt-6 max-w-lg font-body text-lg leading-relaxed text-[#6B5E56]">
+              <p className="animate-fade-in-up delay-400 mt-6 max-w-lg font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                 Embark on an enlightening journey through the Holy Quran. Discover its timeless
                 wisdom, scientific wonders, and the captivating stories of the prophets.
               </p>
@@ -98,26 +98,26 @@ export default function Home() {
       </section>
 
       {/* Book Blurb Section */}
-      <section className="relative py-8 sm:py-10">
+      <section className="relative py-6 sm:py-8 lg:py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="section-divider mb-6" />
           <div className="animate-fade-in-up text-center">
-            <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
+            <h2 className="font-heading text-2xl font-bold text-[#8B1A2B] sm:text-3xl lg:text-4xl">
               About This Book
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
           </div>
           <div className="animate-fade-in-up delay-200 mt-8">
-            <div className="warm-card accent-left p-8 sm:p-10">
+            <div className="warm-card accent-left p-5 sm:p-8 lg:p-10">
               <div className="space-y-6">
-                <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
+                <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                   With a unique construct and presentation, this book is a short and interesting read
                   highlighting some of the major themes of the Quran. It introduces the reader to the
                   gems hidden within its verses -- from scientific references that predate modern
                   discoveries to the powerful stories of the prophets that continue to resonate across
                   generations.
                 </p>
-                <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
+                <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                   Written with clarity and care, it is designed to be accessible and enjoyable for
                   readers of all backgrounds -- whether you are encountering the Quran for the first
                   time or revisiting its wisdom with fresh eyes. A readable, enriching journey awaits.
@@ -129,37 +129,37 @@ export default function Home() {
       </section>
 
       {/* Back Cover / Detailed Description */}
-      <section className="relative bg-[#EDE8E0] py-8 sm:py-10">
+      <section className="relative bg-[#EDE8E0] py-6 sm:py-8 lg:py-10">
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid items-center gap-6 lg:gap-12 lg:grid-cols-2">
             <div className="animate-slide-in-left">
               <Image
                 src="/images/book-cover-back.jpg"
                 alt="A Short Journey Through The Quran - Back Cover"
                 width={480}
                 height={800}
-                className="book-cover-clean mx-auto"
-                style={{ width: "100%", height: "auto", maxWidth: "420px" }}
+                className="book-cover-clean mx-auto max-h-[300px] sm:max-h-none w-auto sm:w-full"
+                style={{ height: "auto", maxWidth: "420px" }}
               />
             </div>
             <div className="animate-slide-in-right space-y-6">
-              <h2 className="font-heading text-3xl font-bold text-[#1B2A4A] sm:text-4xl">
+              <h2 className="font-heading text-2xl font-bold text-[#1B2A4A] sm:text-3xl lg:text-4xl">
                 Discover the Quran
               </h2>
               <div className="h-1 w-16 rounded bg-[#C9A84C]/60" />
-              <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
+              <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                 Discover the foundational scripture that has shaped civilizations and inspired
                 billions. This book introduces you to the major themes and narratives of the
                 Holy Quran in an accessible, engaging format.
               </p>
-              <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
+              <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                 Learn about the stories of the great prophets -- Abraham (Ibrahim), Moses (Musa),
                 Jesus (Issa), and Joseph (Yousuf) -- and the divine books including the Torah and
                 the Gospel. Explore references to science, history, and moral guidance that remain
                 profoundly relevant today.
               </p>
-              <p className="font-body text-lg leading-relaxed text-[#6B5E56]">
+              <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
                 Ideal for students, curious minds, and anyone seeking to understand the essence
                 of the Quran without being overwhelmed. Begin your journey here.
               </p>
@@ -169,14 +169,14 @@ export default function Home() {
       </section>
 
       {/* Key Highlights */}
-      <section className="py-8 sm:py-10">
+      <section className="py-6 sm:py-8 lg:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
-            <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
+            <h2 className="font-heading text-2xl font-bold text-[#8B1A2B] sm:text-3xl lg:text-4xl">
               Key Highlights
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
-            <p className="mt-4 font-body text-lg text-[#6B5E56]">
+            <p className="mt-4 font-body text-base sm:text-lg text-[#6B5E56]">
               What makes this book a must-read
             </p>
           </div>
@@ -204,14 +204,14 @@ export default function Home() {
       </section>
 
       {/* Where to Buy */}
-      <section id="where-to-buy" className="bg-[#EDE8E0] py-8 sm:py-10">
+      <section id="where-to-buy" className="bg-[#EDE8E0] py-6 sm:py-8 lg:py-10">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
-            <h2 className="font-heading text-3xl font-bold text-[#1B2A4A] sm:text-4xl">
+            <h2 className="font-heading text-2xl font-bold text-[#1B2A4A] sm:text-3xl lg:text-4xl">
               Where to Buy
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
-            <p className="mt-4 font-body text-lg text-[#6B5E56]">
+            <p className="mt-4 font-body text-base sm:text-lg text-[#6B5E56]">
               Get your copy today from these retailers
             </p>
           </div>
@@ -242,10 +242,10 @@ export default function Home() {
       </section>
 
       {/* Book Details */}
-      <section className="py-8 sm:py-10">
+      <section className="py-6 sm:py-8 lg:py-10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up text-center">
-            <h2 className="font-heading text-3xl font-bold text-[#8B1A2B] sm:text-4xl">
+            <h2 className="font-heading text-2xl font-bold text-[#8B1A2B] sm:text-3xl lg:text-4xl">
               Book Details
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
@@ -274,15 +274,15 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden py-8 sm:py-10">
+      <section className="relative overflow-hidden py-6 sm:py-8 lg:py-10">
         <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8E0] via-[#F5F0E8] to-[#FAF8F5]" />
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="animate-fade-in-up font-heading text-3xl font-bold sm:text-4xl">
+          <h2 className="animate-fade-in-up font-heading text-2xl font-bold sm:text-3xl lg:text-4xl">
             Begin Your{" "}
             <span className="text-[#8B1A2B]">Journey</span>
           </h2>
-          <p className="animate-fade-in-up delay-200 mt-4 font-body text-lg text-[#6B5E56]">
+          <p className="animate-fade-in-up delay-200 mt-4 font-body text-base sm:text-lg text-[#6B5E56]">
             Open the pages and discover the wisdom, beauty, and guidance of the Holy Quran.
           </p>
           <div className="animate-fade-in-up delay-300 mt-8 flex flex-col justify-center gap-4 sm:flex-row">

@@ -77,7 +77,7 @@ export default function ContactPage() {
       )}
 
       {/* Header */}
-      <section className="relative overflow-hidden py-8 sm:py-10">
+      <section className="relative overflow-hidden py-6 sm:py-8 lg:py-10">
         <div className="geometric-pattern absolute inset-0 opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">

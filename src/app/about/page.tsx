@@ -12,7 +12,7 @@ export default function AboutPage() {
   return (
     <div className="bg-cream">
       {/* Header */}
-      <section className="relative overflow-hidden py-8 sm:py-10">
+      <section className="relative overflow-hidden py-6 sm:py-8 lg:py-10">
         <div className="geometric-pattern absolute inset-0 opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-cream via-transparent to-cream" />
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
@@ -44,7 +44,7 @@ export default function AboutPage() {
 
             {/* About the Book */}
             <div className="animate-slide-in-right lg:col-span-3">
-              <h2 className="font-heading text-3xl font-bold text-burgundy sm:text-4xl">
+              <h2 className="font-heading text-2xl font-bold sm:text-3xl lg:text- text-burgundy sm:text-4xl">
                 About the Book
               </h2>
               <div className="mt-3 h-1 w-16 rounded bg-gold" />
@@ -91,7 +91,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="animate-fade-in-up">
-            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+            <h2 className="font-heading text-2xl font-bold sm:text-3xl lg:text- text-navy sm:text-4xl">
               About the Author
             </h2>
             <div className="mt-3 h-1 w-16 rounded bg-gold" />
