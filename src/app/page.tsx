@@ -39,19 +39,17 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
-            {/* Book Cover — clean, no wrapper box */}
+            {/* Book Cover — clean, image only */}
             <div className="animate-fade-in-up book-3d flex-shrink-0">
-              <div className="book-3d-inner">
-                <Image
-                  src="/images/book-cover-front.jpg"
-                  alt="A Short Journey Through The Quran - Book Cover"
-                  width={380}
-                  height={600}
-                  priority
-                  className="book-cover-clean"
-                  style={{ width: "auto", height: "auto", maxWidth: "380px" }}
-                />
-              </div>
+              <Image
+                src="/images/book-cover-front.jpg"
+                alt="A Short Journey Through The Quran - Book Cover"
+                width={380}
+                height={600}
+                priority
+                className="book-cover-clean"
+                style={{ width: "auto", height: "auto", maxWidth: "380px" }}
+              />
             </div>
 
             {/* Hero Text */}
