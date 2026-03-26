@@ -39,21 +39,19 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-14">
-            {/* Book Cover — Premium 3D standing book */}
-            <div className="animate-fade-in-up book-3d flex-shrink-0 pb-8">
-              <div className="book-3d-inner relative">
+            {/* Book Cover — clean, no wrapper box */}
+            <div className="animate-fade-in-up book-3d flex-shrink-0">
+              <div className="book-3d-inner">
                 <Image
                   src="/images/book-cover-front.jpg"
                   alt="A Short Journey Through The Quran - Book Cover"
                   width={380}
                   height={600}
                   priority
-                  className="relative z-10 rounded-l-sm rounded-r-none"
+                  className="book-cover-clean"
                   style={{ width: "auto", height: "auto", maxWidth: "380px" }}
                 />
               </div>
-              {/* Floating shadow */}
-              <div className="book-shadow" />
             </div>
 
             {/* Hero Text */}
@@ -143,7 +141,7 @@ export default function Home() {
                 alt="A Short Journey Through The Quran - Back Cover"
                 width={480}
                 height={800}
-                className="mx-auto rounded-lg shadow-2xl shadow-[#2C2420]/15"
+                className="book-cover-clean mx-auto"
                 style={{ width: "auto", height: "auto", maxWidth: "480px" }}
               />
             </div>
