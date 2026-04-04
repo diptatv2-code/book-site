@@ -111,16 +111,10 @@ export default function Home() {
             <div className="warm-card accent-left p-5 sm:p-8 lg:p-10">
               <div className="space-y-6">
                 <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
-                  With a unique construct and presentation, this book is a short and interesting read
-                  highlighting some of the major themes of the Quran. It introduces the reader to the
-                  gems hidden within its verses -- from scientific references that predate modern
-                  discoveries to the powerful stories of the prophets that continue to resonate across
-                  generations.
+                  This book has a unique construct in the way it introduces the Quran. It is not a list of do&apos;s and don&apos;ts. It mentions the Quranic guidance to lead our lives, the text, extracted from all over the Scripture as Gems from the Quran. It introduces you to the history of the Prophets, Musa (Moses), Ibrahim(Abraham), Issa (Jesus) and Muhammad, and the lessons we derive from their lives. You will see the reference to the packets of scientific information that predate modern discoveries and dotted all over the Quran. The historic accounts of the past and the predictions of the future. It will be enjoyable for readers of all backgrounds — whether you are encountering the Quran for the first time or revisiting its wisdom with fresh eyes.
                 </p>
                 <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
-                  Written with clarity and care, it is designed to be accessible and enjoyable for
-                  readers of all backgrounds -- whether you are encountering the Quran for the first
-                  time or revisiting its wisdom with fresh eyes. A readable, enriching journey awaits.
+                  Discover your own faith through Islam, and see the striking similarity between Islam and other Abrahamic faiths. Quran is the last of the revealed books, and has been preserved with Divine intervention and care, such is the declaration in the Quran itself. Readable, with many extracts from the Quran. A short journey of a profound Scripture.
                 </p>
               </div>
             </div>
@@ -149,19 +143,13 @@ export default function Home() {
               </h2>
               <div className="h-1 w-16 rounded bg-[#C9A84C]/60" />
               <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
-                Discover the foundational scripture that has shaped civilizations and inspired
-                billions. This book introduces you to the major themes and narratives of the
-                Holy Quran in an accessible, engaging format.
+                Discover the foundational scripture of Islam, a book revered by nearly two billion people worldwide. This accessible guide opens the door to understanding the Quran, not as an isolated text, but as the final chapter in a universal story of divine guidance. Within its pages, you will encounter familiar figures cherished in other faiths, such as the unwavering monotheist Abraham/Ibrahim, the law-bearing Moses/Musa, and the compassionate Jesus/Issa, son of Mary/Marium — all of whom are honored as prophetic predecessors to Muhammad. The Quran&apos;s poignant narrative of Joseph/Yousuf, a tale of betrayal and ultimate triumph, is recounted.
               </p>
               <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
-                Learn about the stories of the great prophets -- Abraham (Ibrahim), Moses (Musa),
-                Jesus (Issa), and Joseph (Yousuf) -- and the divine books including the Torah and
-                the Gospel. Explore references to science, history, and moral guidance that remain
-                profoundly relevant today.
+                A central tenet explored in this introduction is the Islamic belief in all earlier revealed books, like the Torah and the Gospel. The Quran presents itself as a confirming culmination and a protective guardian of the original message brought by these prophets. This book will illuminate how Muslims view divine revelation as a continuous thread, weaving through history and connecting humanity to the one God. Nuggets of guidance for living a life, and given throughout the Quran, are also presented here.
               </p>
               <p className="font-body text-base sm:text-lg leading-relaxed text-[#6B5E56]">
-                Ideal for students, curious minds, and anyone seeking to understand the essence
-                of the Quran without being overwhelmed. Begin your journey here.
+                Perfect for students and curious minds, this volume provides the essential context to appreciate the Quran&apos;s timeless message of faith, justice, and compassion.
               </p>
             </div>
           </div>
@@ -212,18 +200,18 @@ export default function Home() {
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded bg-[#C9A84C]/60" />
             <p className="mt-4 font-body text-base sm:text-lg text-[#6B5E56]">
-              Get your copy today from these retailers
+              Get your copy today
             </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <div className="mt-8 flex justify-center">
             {retailers.map((retailer, i) => (
               <a
                 key={retailer.name}
                 href={retailer.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group flex flex-col items-center p-4 sm:p-6 text-center`}
+                className={`animate-fade-in-up delay-${(i + 1) * 100} warm-card group flex max-w-sm flex-col items-center p-4 sm:p-6 text-center`}
               >
                 <div className="flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#8B1A2B]/10 text-3xl transition-colors group-hover:bg-[#8B1A2B]/15">
                   {retailer.icon}
@@ -309,16 +297,6 @@ const highlights = [
   {
     icon: (
       <svg className="h-7 w-7 text-[#8B1A2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-      </svg>
-    ),
-    title: "11 Chapters",
-    description:
-      "Carefully structured chapters covering the major themes and narratives of the Quran in a logical progression.",
-  },
-  {
-    icon: (
-      <svg className="h-7 w-7 text-[#8B1A2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
       </svg>
     ),
@@ -371,42 +349,12 @@ const highlights = [
 const retailers = [
   {
     name: "Amazon",
-    url: "https://www.amazon.com",
-    note: "Paperback & Kindle",
+    url: "https://www.amazon.com/dp/B0F2NLP67Q",
+    note: "Hardcover, Paperback & Kindle",
     icon: (
       <svg className="h-8 w-8 text-[#8B1A2B]" fill="currentColor" viewBox="0 0 24 24">
         <path d="M.045 18.02c.07-.116.36-.31.77-.58 3.02-2.01 6.61-3.19 10.44-3.19 2.79 0 5.67.59 8.4 1.83.27.12.5.27.67.46.17.19.26.42.26.66 0 .3-.13.53-.4.67-.26.15-.6.12-.96-.08a21.77 21.77 0 00-7.97-1.79c-3.63 0-7.05 1.12-9.83 3.04-.21.14-.4.17-.55.1a.46.46 0 01-.26-.42c0-.08.02-.18.07-.29zm22.03-2.54c-.34-.42-1.12-.63-2.19-.63-.83 0-1.8.16-2.7.41-.24.07-.42.02-.5-.12-.08-.14-.02-.33.19-.46.91-.54 2.71-.76 3.87-.76 1.45 0 2.3.39 2.72.92.42.53.22 1.21-.42 2.05-.12.16-.3.19-.46.1-.16-.1-.2-.27-.1-.44.5-.86.64-1.48.36-1.88z" />
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" opacity="0" />
-      </svg>
-    ),
-  },
-  {
-    name: "Barnes & Noble",
-    url: "https://www.barnesandnoble.com",
-    note: "Paperback & Nook",
-    icon: (
-      <svg className="h-8 w-8 text-[#8B1A2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Book Depository",
-    url: "https://www.bookdepository.com",
-    note: "Free worldwide shipping",
-    icon: (
-      <svg className="h-8 w-8 text-[#8B1A2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
-      </svg>
-    ),
-  },
-  {
-    name: "Publisher Direct",
-    url: "#",
-    note: "Signed copies available",
-    icon: (
-      <svg className="h-8 w-8 text-[#8B1A2B]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
       </svg>
     ),
   },
@@ -416,7 +364,7 @@ const bookDetails = [
   { icon: <span className="text-[#8B1A2B]">&#x1D54B;</span>, label: "Title", value: "A Short Journey Through The Quran" },
   { icon: <span className="text-[#8B1A2B]">&#x270D;</span>, label: "Author", value: "Tanbirul Quadir Choudhury" },
   { icon: <span className="text-[#8B1A2B]">&#x1F4C4;</span>, label: "Pages", value: "~110" },
-  { icon: <span className="text-[#8B1A2B]">&#x1F4D6;</span>, label: "Format", value: "Paperback / eBook" },
+  { icon: <span className="text-[#8B1A2B]">&#x1F4D6;</span>, label: "Format", value: "Hardcover / Paperback / Kindle" },
   { icon: <span className="text-[#8B1A2B]">&#x1F310;</span>, label: "Language", value: "English" },
   { icon: <span className="text-[#8B1A2B]">&#x2B50;</span>, label: "Chapters", value: "11 + 3 Appendices" },
 ];

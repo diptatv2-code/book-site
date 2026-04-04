@@ -9,104 +9,23 @@ export const metadata: Metadata = {
 };
 
 const chapters = [
-  {
-    number: 1,
-    title: "Introduction to the Quran",
-    page: 1,
-    description:
-      "An overview of the Quran's origins, structure, and its enduring significance as a guide for humanity.",
-  },
-  {
-    number: 2,
-    title: "The Quran and Science",
-    page: 9,
-    description:
-      "Remarkable scientific references in the Quran, from embryology to the expanding universe, revealed centuries before modern discovery.",
-  },
-  {
-    number: 3,
-    title: "Stories of the Prophets",
-    page: 19,
-    description:
-      "The timeless narratives of the prophets and messengers sent to guide humanity across the ages.",
-  },
-  {
-    number: 4,
-    title: "Abraham (Ibrahim) - The Friend of God",
-    page: 27,
-    description:
-      "The story of Prophet Abraham, his unwavering faith, his trials, and his legacy as the patriarch of monotheism.",
-  },
-  {
-    number: 5,
-    title: "Moses (Musa) - The Liberator",
-    page: 35,
-    description:
-      "Prophet Moses and the exodus from Egypt -- miracles, the Torah, and the covenant with the Children of Israel.",
-  },
-  {
-    number: 6,
-    title: "Jesus (Issa) - The Messiah",
-    page: 45,
-    description:
-      "The Quranic account of Prophet Jesus, his miraculous birth, his teachings, and the Gospel he brought.",
-  },
-  {
-    number: 7,
-    title: "Joseph (Yousuf) - The Best of Stories",
-    page: 53,
-    description:
-      "An extraordinary tale of jealousy, patience, and divine wisdom -- called the best of stories in the Quran itself.",
-  },
-  {
-    number: 8,
-    title: "The Torah, the Gospel, and the Quran",
-    page: 61,
-    description:
-      "Understanding the relationship between the three great scriptures and their shared message of divine guidance.",
-  },
-  {
-    number: 9,
-    title: "Historical Accounts in the Quran",
-    page: 69,
-    description:
-      "Civilizations and events recorded in the Quran -- from ancient Egypt to the people of Ad and Thamud.",
-  },
-  {
-    number: 10,
-    title: "Gems from the Quran",
-    page: 79,
-    description:
-      "Profound verses of wisdom, moral guidance, and spiritual insight that illuminate the path for seekers.",
-  },
-  {
-    number: 11,
-    title: "Reflections and Conclusion",
-    page: 89,
-    description:
-      "A synthesis of the journey -- reflecting on the Quran's relevance and call to thoughtful exploration.",
-  },
+  { number: 1, title: "The Quran, an Introduction", page: 4 },
+  { number: 2, title: "The Quran - its Relation to Other Scriptures", page: 13 },
+  { number: 3, title: "Starting The Journey: Oft Recited Verses from The Quran", page: 20 },
+  { number: 4, title: "Scientific References in the Quran", page: 26 },
+  { number: 5, title: "Historical References in the Quran: Predictions and History", page: 35 },
+  { number: 6, title: "Marium (Mary) pbuh and Issa (Jesus) pbuh in the Quran", page: 54 },
+  { number: 7, title: "Life Circumstances Mentioned: Guidance and Thoughts: Gems from the Quran", page: 61 },
+  { number: 8, title: "Ibrahim (Abraham) and Yousuf (Joseph) (Peace be upon them all) in the Quran", page: 71 },
+  { number: 9, title: "On His Creating, Creation and Guidance: Gems from the Quranic Suras", page: 79 },
+  { number: 10, title: "Musa (Moses) (pbuh) in the Quran", page: 86 },
+  { number: 11, title: "Etiquettes, Manners and Guidance in the Quran: Gems from the Quranic Suras", page: 93 },
 ];
 
 const appendices = [
-  {
-    letter: "A",
-    title: "Timeline of the Prophets",
-    page: 95,
-    description: "A chronological overview of the prophets mentioned in the Quran and their historical context.",
-  },
-  {
-    letter: "B",
-    title: "Scientific References Index",
-    page: 100,
-    description: "A curated index of verses with scientific references, organized by topic for easy reference.",
-  },
-  {
-    letter: "C",
-    title: "Glossary of Arabic Terms",
-    page: 105,
-    description: "Key Arabic terms and their meanings to aid understanding throughout the book.",
-  },
+  { letter: "1", title: "Protection and Preservation of The Quran", page: 107 },
+  { letter: "2", title: "Timeline of the Revelation of the Quran and Muhammad\u2019s (pbuh) birth and Prophethood.", page: 109 },
+  { letter: "3", title: "The Continuity of Monotheistic faith leading to Muhammad (pbuh) and Islam. A brief Timeline.", page: 110 },
 ];
 
 export default function ContentsPage() {
@@ -144,14 +63,26 @@ export default function ContentsPage() {
               <div>
                 <h2 className="font-heading text-xl font-bold text-[#1B2A4A]">From the Introduction</h2>
                 <div className="mt-2 h-0.5 w-10 rounded bg-[#C9A84C]/50" />
-                <p className="mt-3 font-body text-base leading-relaxed text-[#6B5E56]">
-                  With a unique construct and presentation, this book is a short and interesting
-                  read highlighting some of the major themes of the Quran. It introduces the
-                  reader to the gems hidden within its verses -- from scientific references that
-                  predate modern discoveries to the powerful stories of the prophets that continue
-                  to resonate across generations. Written with clarity and care, it is designed to
-                  be accessible and enjoyable for readers of all backgrounds.
-                </p>
+                <div className="mt-3 space-y-4 font-body text-base leading-relaxed text-[#6B5E56]">
+                  <p>
+                    Introducing the Quran is no easy task. Lives of messengers as related in the Quran are just not story told; they carry an underlying message, which must be related to our own lives.
+                  </p>
+                  <p>
+                    Nuggets of divine instructions scattered all over Quran are given here as: Gems From The Quran. While most are relatively straightforward and easy to comprehend others may require reference to further explanation from tafseer/exegesis.
+                  </p>
+                  <p>
+                    Suras revealed can be attributed to the Divine Will, while some are in answers to what Prophet Muhammad (pbuh) was at some point in his daily life, asked about.
+                  </p>
+                  <p>
+                    If some passages seem to have double meanings, we have to know the context behind why it was revealed in order extract the correct meaning. Where deemed necessary explanations were given from well-known exegesis (tafseer) Ibne Kathir, or Maariful Quran.
+                  </p>
+                  <p>
+                    In the end it must be emphasized that the Quran is a Divine Book, what we read and the meaning we try to bring out literally, is only a part of the effort. Quran itself exhorts us to ponder over it. This is what the Quran says about itself:
+                  </p>
+                  <blockquote className="mt-2 border-l-4 border-[#C9A84C]/60 pl-4 italic text-[#4A4440]">
+                    In it are Verses that are entirely clear, they are the foundations of the Book [and these are the Verses (commandments), Al-Faraid (obligatory duties), and Al-Hudud (legal laws for the punishment)]; and others are not entirely clear. So as for those in whose heart there is a deviation (from the truth) they follow that which is not entirely clear thereof, seeking Al-Fitnah (polytheism and trials), and seeking its hidden meanings, but none knows its hidden meanings save Allah.
+                  </blockquote>
+                </div>
               </div>
             </div>
           </div>
@@ -162,7 +93,7 @@ export default function ContentsPage() {
       <section className="py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h2 className="animate-fade-in-up font-heading text-2xl font-bold text-[#1B2A4A] sm:text-3xl">
-            Chapters
+            CONTENTS
           </h2>
           <div className="mt-2 h-0.5 w-12 rounded bg-[#C9A84C]/60" />
 
@@ -181,10 +112,6 @@ export default function ContentsPage() {
                       <h3 className="font-heading text-lg font-semibold text-[#1B2A4A] transition-colors group-hover:text-[#8B1A2B]">
                         {chapter.title}
                       </h3>
-                      <div className="mt-1.5 mb-1.5 h-px w-8 bg-[#C9A84C]/40" />
-                      <p className="font-body text-sm leading-relaxed text-[#6B5E56]">
-                        {chapter.description}
-                      </p>
                     </div>
                   </div>
                   <span className="flex-shrink-0 rounded-full bg-[#EDE8E0] px-3 py-1 font-ui text-xs tabular-nums text-[#8A7E76]">
@@ -220,10 +147,6 @@ export default function ContentsPage() {
                       <h3 className="font-heading text-lg font-semibold text-[#1B2A4A] transition-colors group-hover:text-[#8B1A2B]">
                         {appendix.title}
                       </h3>
-                      <div className="mt-1.5 mb-1.5 h-px w-8 bg-[#C9A84C]/40" />
-                      <p className="font-body text-sm leading-relaxed text-[#6B5E56]">
-                        {appendix.description}
-                      </p>
                     </div>
                   </div>
                   <span className="flex-shrink-0 rounded-full bg-[#EDE8E0] px-3 py-1 font-ui text-xs tabular-nums text-[#8A7E76]">

@@ -110,7 +110,7 @@ const jsonLd = {
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/contents", label: "Contents" },
+  { href: "/contents", label: "Book Contents" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
