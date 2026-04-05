@@ -23,7 +23,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const siteUrl = "https://ashortjourneythroughthequran.com";
+const siteUrl = "https://introducingthequran.com";
 
 export const metadata: Metadata = {
   title: {
@@ -31,23 +31,24 @@ export const metadata: Metadata = {
     template: "%s | A Short Journey Through The Quran",
   },
   description:
-    "Discover the Quran like never before. A Short Journey Through The Quran offers a unique, accessible introduction covering science, history, stories of the prophets, and timeless wisdom from the Holy Quran.",
+    "A Short Journey Through The Quran — discover scientific miracles, historical accounts, stories of the prophets (Abraham, Moses, Jesus, Joseph), and timeless Quranic guidance. An accessible introduction by Tanbirul Quadir Choudhury covering science, history, spirituality, and the relationship between the Torah, Gospel, and Quran.",
   keywords: [
-    "Quran",
-    "Islam",
-    "Prophets",
-    "Science in Quran",
-    "History",
-    "Abraham",
-    "Moses",
-    "Jesus",
-    "Joseph",
-    "Torah",
-    "Gospel",
-    "Islamic book",
-    "Tanbirul Quadir Choudhury",
-    "Introduction to Quran",
-    "Quran for beginners",
+    "Quran", "Quran introduction", "Quran for beginners", "understanding the Quran",
+    "Quran and science", "Quran and modern science", "scientific miracles in the Quran",
+    "Big Bang in the Quran", "embryology in the Quran", "Quran and astronomy",
+    "scientific facts in Quran", "Quran and physics", "Quran and biology",
+    "stories of the prophets in Quran", "prophets in Quran", "Quranic stories",
+    "Story of Prophet Musa Moses in Quran", "Story of Prophet Isa Jesus in Quran",
+    "Story of Prophet Ibrahim Abraham in Quran", "Story of Prophet Yusuf Joseph in Quran",
+    "Quran history", "historical accuracy of the Quran", "preservation of the Quran",
+    "Pharaoh in the Quran", "Quran and ancient civilizations",
+    "Quranic guidance", "life lessons from Quran", "moral teachings of the Quran",
+    "Quranic wisdom for daily life", "how to live by the Quran", "spiritual guidance",
+    "Islam", "Islamic book", "Torah Gospel Quran", "Abrahamic faiths",
+    "Tanbirul Quadir Choudhury", "A Short Journey Through The Quran",
+    "Quran book", "modern Quran interpretation", "evidence for Quran",
+    "Quran on forgiveness", "Quran on patience", "purpose of life in Quran",
+    "religion and science", "faith and science", "Quranic science book",
   ],
   authors: [{ name: "Tanbirul Quadir Choudhury" }],
   creator: "Tanbirul Quadir Choudhury",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     type: "book",
     title: "A Short Journey Through The Quran - An Introduction",
     description:
-      "A unique and accessible introduction to the Quran covering science, history, stories of the prophets, and timeless wisdom.",
+      "Explore scientific miracles, stories of the prophets, historical accounts, and divine guidance in the Quran. A unique, accessible introduction for readers of all backgrounds.",
     url: siteUrl,
     siteName: "A Short Journey Through The Quran",
     images: [
@@ -74,7 +75,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "A Short Journey Through The Quran - An Introduction",
     description:
-      "Discover the Quran like never before. Science, history, prophets, and timeless wisdom in one accessible book.",
+      "Discover the Quran's scientific miracles, prophet stories, and timeless guidance. An accessible introduction by Tanbirul Quadir Choudhury.",
     images: ["/images/og-cover.jpg"],
   },
   robots: {
@@ -99,14 +100,24 @@ const jsonLd = {
     "@type": "Person",
     name: "Tanbirul Quadir Choudhury",
   },
+  publisher: {
+    "@type": "Organization",
+    name: "DIPTAIT",
+  },
   description:
     "A unique and accessible introduction to the Quran covering science, history, stories of the prophets, and timeless wisdom.",
   numberOfPages: 110,
   bookFormat: "https://schema.org/Paperback",
   inLanguage: "en",
-  image: `${siteUrl}/images/og-cover.jpg`,
-  url: siteUrl,
-  genre: ["Religion", "Islam", "Quran Studies"],
+  isbn: "",
+  image: "https://introducingthequran.com/images/og-cover.jpg",
+  url: "https://introducingthequran.com",
+  genre: ["Religion", "Islam", "Quran Studies", "Science and Religion", "History", "Spirituality"],
+  keywords: "Quran, science, prophets, history, Islam, guidance, Abraham, Moses, Jesus, Joseph, Torah, Gospel",
+  audience: {
+    "@type": "Audience",
+    audienceType: "General readers, students, spiritual seekers",
+  },
 };
 
 const navLinks = [

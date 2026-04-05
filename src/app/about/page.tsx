@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About the Book & Author — Tanbirul Quadir Choudhury",
   description:
-    "Learn about A Short Journey Through The Quran and its author Tanbirul Quadir Choudhury. A unique introduction to the Quran for modern readers.",
+    "Learn about A Short Journey Through The Quran and its author Tanbirul Quadir Choudhury. A unique introduction to the Quran covering science, history, and the stories of the prophets.",
 };
 
 export default function AboutPage() {

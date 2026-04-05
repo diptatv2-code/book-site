@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Table of Contents",
+  title: "Book Contents — 11 Chapters on Science, Prophets & History",
   description:
-    "Explore the chapters and appendices of A Short Journey Through The Quran. 11 chapters covering science, history, prophets, and the wisdom of the Quran.",
+    "Explore all 11 chapters covering scientific references, stories of prophets (Moses, Jesus, Abraham, Joseph), historical accounts, and Quranic guidance. Plus 3 appendices.",
 };
 
 const chapters = [

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
 
-Sitemap: https://ashortjourneythroughthequran.com/sitemap.xml
+Sitemap: https://introducingthequran.com/sitemap.xml
