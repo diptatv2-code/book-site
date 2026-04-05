@@ -349,7 +349,7 @@ const highlights = [
 const retailers = [
   {
     name: "Amazon",
-    url: "https://www.amazon.com/dp/B0F2NLP67Q",
+    url: "https://www.amazon.com/Short-Journey-Through-Quran/dp/1918495572",
     note: "Hardcover, Paperback & Kindle",
     icon: (
       <svg className="h-8 w-8 text-[#8B1A2B]" fill="currentColor" viewBox="0 0 24 24">
