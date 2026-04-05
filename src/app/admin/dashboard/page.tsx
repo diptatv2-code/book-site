@@ -39,6 +39,12 @@ interface FeedbackMessage {
   created_at: string;
 }
 
+interface LiveVisitor {
+  country: string;
+  page_path: string;
+  last_seen: string;
+}
+
 interface StatsData {
   totalVisitors: number;
   todayVisitors: number;
@@ -137,6 +143,21 @@ export default function AdminDashboard() {
   const [loadingStats, setLoadingStats] = useState(true);
   const [loadingFeedback, setLoadingFeedback] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [liveVisitors, setLiveVisitors] = useState<LiveVisitor[]>([]);
+  const [liveCount, setLiveCount] = useState(0);
+
+  const fetchLiveVisitors = useCallback(async () => {
+    try {
+      const res = await fetch('/api/admin/live-visitors');
+      if (res.ok) {
+        const data = await res.json();
+        setLiveCount(data.count);
+        setLiveVisitors(data.visitors || []);
+      }
+    } catch (error) {
+      console.error('Failed to fetch live visitors:', error);
+    }
+  }, []);
 
   const fetchData = useCallback(async () => {
     try {
@@ -168,7 +189,10 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]);
+    fetchLiveVisitors();
+    const interval = setInterval(fetchLiveVisitors, 30000);
+    return () => clearInterval(interval);
+  }, [fetchData, fetchLiveVisitors]);
 
   const handleRefresh = async () => {
     setRefreshing(true);
@@ -244,6 +268,38 @@ export default function AdminDashboard() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Live Now */}
+        <section className="mb-8">
+          <div className="warm-card p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
+              </span>
+              <span className="text-sm font-semibold text-green-700 font-ui">Live</span>
+              <span className="text-2xl font-bold text-[#1B2A4A] font-heading">{liveCount}</span>
+              <span className="text-sm text-[#6B5E56] font-ui">
+                {liveCount === 1 ? 'active visitor' : 'active visitors'}
+              </span>
+            </div>
+            {liveCount > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {liveVisitors.map((v, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-[#FAF8F5] rounded-lg px-4 py-3 border border-[#EBE6E0]">
+                    <span className="text-sm text-[#2C2420] font-ui">{v.country}</span>
+                    <span className="text-[#DDD5CC]">&middot;</span>
+                    <code className="text-xs text-[#1B2A4A] bg-[#1B2A4A]/5 px-2 py-0.5 rounded font-mono truncate">
+                      {v.page_path}
+                    </code>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-[#8A7E76] font-body">No active visitors right now</p>
+            )}
+          </div>
+        </section>
+
         {/* Overview Cards */}
         <section className="mb-8">
           <h2 className="text-sm font-medium text-[#6B5E56] uppercase tracking-wider mb-4 font-ui">Overview</h2>

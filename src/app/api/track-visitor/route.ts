@@ -23,6 +23,23 @@ export async function POST(request: NextRequest) {
     const userAgent = request.headers.get('user-agent') || 'unknown';
     const referrer = request.headers.get('referer') || '';
 
+    // Bot detection — filter before inserting
+    const botPatterns = [
+      'bot', 'crawl', 'spider', 'slurp', 'bingbot', 'googlebot', 'yandex',
+      'baidu', 'duckduckbot', 'facebookexternalhit', 'twitterbot', 'linkedinbot',
+      'whatsapp', 'telegram', 'pinterest', 'semrush', 'ahref', 'mj12bot',
+      'dotbot', 'petalbot', 'bytespider', 'gptbot', 'claudebot', 'anthropic',
+      'applebot', 'archive.org', 'uptimerobot', 'pingdom', 'statuspage',
+      'headlesschrome', 'phantomjs', 'selenium', 'puppeteer', 'playwright',
+      'lighthouse', 'pagespeed', 'gtmetrix', 'curl', 'wget', 'python-requests',
+      'go-http-client', 'java/', 'ruby/', 'perl/', 'php/',
+    ];
+
+    const isBot = botPatterns.some(pattern => userAgent.toLowerCase().includes(pattern));
+    if (isBot) {
+      return Response.json({ success: true, filtered: 'bot' });
+    }
+
     const sessionId = (await hashString(ip + userAgent)).slice(0, 32);
 
     // Insert visitor log
