@@ -237,20 +237,9 @@ export default function RootLayout({
 
             <div className="mt-8 h-px bg-gradient-to-r from-transparent via-[#C9A84C]/30 to-transparent" />
 
-            <div className="mt-6 flex flex-col items-center justify-between gap-3 sm:flex-row">
+            <div className="mt-6 flex items-center justify-center">
               <p className="font-ui text-xs text-[#FAF8F5]/50">
                 &copy; 2026 Tanbirul Quadir Choudhury. All rights reserved.
-              </p>
-              <p className="font-ui text-xs text-[#FAF8F5]/50">
-                Website by{" "}
-                <a
-                  href="https://diptait.com.bd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#C9A84C] transition-colors hover:text-[#E2D5A8]"
-                >
-                  DIPTAIT
-                </a>
               </p>
             </div>
           </div>
