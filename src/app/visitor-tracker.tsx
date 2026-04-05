@@ -12,7 +12,7 @@ export function VisitorTracker() {
     fetch("/api/track-visitor", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ page: pathname }),
+      body: JSON.stringify({ page_path: pathname }),
     }).catch(() => {
       // Silently fail - visitor tracking is non-critical
     });

@@ -3,6 +3,7 @@ import { Playfair_Display, Source_Serif_4, Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { VisitorTracker } from "./visitor-tracker";
+import { MobileMenu } from "./components/MobileMenu";
 
 const playfair = Playfair_Display({
   variable: "--font-heading",
@@ -159,7 +160,7 @@ export default function RootLayout({
               </div>
 
               {/* Mobile hamburger */}
-              <MobileMenu />
+              <MobileMenu navLinks={navLinks} />
             </div>
           </div>
         </nav>
@@ -248,32 +249,3 @@ export default function RootLayout({
   );
 }
 
-function MobileMenu() {
-  return (
-    <div className="md:hidden">
-      <input type="checkbox" id="mobile-menu-toggle" className="peer hidden" />
-      <label
-        htmlFor="mobile-menu-toggle"
-        className="flex cursor-pointer flex-col gap-1.5 p-2"
-        aria-label="Toggle navigation menu"
-      >
-        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:translate-y-2 peer-checked:rotate-45" />
-        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:opacity-0" />
-        <span className="block h-0.5 w-6 bg-[#6B5E56] transition-all peer-checked:-translate-y-2 peer-checked:-rotate-45" />
-      </label>
-      <div className="invisible absolute left-0 top-16 w-full border-b border-[#DDD5CC]/60 bg-[#FAF8F5]/98 opacity-0 backdrop-blur-md transition-all duration-300 peer-checked:visible peer-checked:opacity-100">
-        <div className="flex flex-col gap-1 px-4 py-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="rounded-lg px-4 py-3 font-ui text-sm font-medium text-[#6B5E56] transition-colors hover:bg-[#EDE8E0] hover:text-[#8B1A2B]"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}

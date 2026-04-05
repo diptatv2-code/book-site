@@ -134,6 +134,18 @@ function CustomTooltip({
   );
 }
 
+function formatPagePath(path: string): string {
+  const pathNames: Record<string, string> = {
+    '/': 'Home',
+    '/contents': 'Book Contents',
+    '/about': 'About',
+    '/contact': 'Contact',
+    '/admin': 'Admin',
+    '/admin/dashboard': 'Admin Dashboard',
+  };
+  return pathNames[path] || path;
+}
+
 // --- Main Dashboard ---
 
 export default function AdminDashboard() {
@@ -289,7 +301,7 @@ export default function AdminDashboard() {
                     <span className="text-sm text-[#2C2420] font-ui">{v.country}</span>
                     <span className="text-[#DDD5CC]">&middot;</span>
                     <code className="text-xs text-[#1B2A4A] bg-[#1B2A4A]/5 px-2 py-0.5 rounded font-mono truncate">
-                      {v.page_path}
+                      {formatPagePath(v.page_path)}
                     </code>
                   </div>
                 ))}
@@ -497,7 +509,7 @@ export default function AdminDashboard() {
                         >
                           <td className="px-6 py-3 text-sm font-body">
                             <code className="text-[#1B2A4A] bg-[#1B2A4A]/5 px-2 py-0.5 rounded text-xs font-mono">
-                              {row.page_path}
+                              {formatPagePath(row.page_path)}
                             </code>
                           </td>
                           <td className="px-6 py-3 text-sm text-right font-ui">
