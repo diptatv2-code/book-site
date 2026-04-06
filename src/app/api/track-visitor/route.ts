@@ -1,4 +1,4 @@
-import { supabase, supabaseAdmin } from '@/lib/supabase';
+import { dbQuery } from '@/lib/db';
 import { type NextRequest } from 'next/server';
 
 export const dynamic = 'force-dynamic';
@@ -16,14 +16,13 @@ export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => ({}));
     const pagePath = body.page_path || '/';
 
-    // Vercel built-in geolocation headers — free, fast, always works
     const country = request.headers.get('x-vercel-ip-country') || 'Unknown';
     const city = decodeURIComponent(request.headers.get('x-vercel-ip-city') || 'Unknown');
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'Unknown';
     const userAgent = request.headers.get('user-agent') || 'unknown';
     const referrer = request.headers.get('referer') || '';
 
-    // Bot detection — filter before inserting
+    // Bot detection
     const botPatterns = [
       'bot', 'crawl', 'spider', 'slurp', 'bingbot', 'googlebot', 'yandex',
       'baidu', 'duckduckbot', 'facebookexternalhit', 'twitterbot', 'linkedinbot',
@@ -42,8 +41,7 @@ export async function POST(request: NextRequest) {
 
     const sessionId = (await hashString(ip + userAgent)).slice(0, 32);
 
-    // Insert visitor log
-    await supabase.from('visitor_logs').insert({
+    await dbQuery('track_visitor', {
       ip_address: ip,
       user_agent: userAgent,
       page_path: pagePath,
@@ -52,68 +50,6 @@ export async function POST(request: NextRequest) {
       session_id: sessionId,
       referrer,
     });
-
-    // Upsert daily stats
-    const today = new Date().toISOString().split('T')[0];
-
-    const { data: existingDaily } = await supabaseAdmin
-      .from('visitor_stats_daily')
-      .select('*')
-      .eq('date', today)
-      .single();
-
-    if (existingDaily) {
-      const { count: sessionCount } = await supabaseAdmin
-        .from('visitor_logs')
-        .select('*', { count: 'exact', head: true })
-        .eq('session_id', sessionId)
-        .gte('created_at', `${today}T00:00:00.000Z`);
-
-      const isNew = (sessionCount || 0) <= 1;
-
-      await supabaseAdmin
-        .from('visitor_stats_daily')
-        .update({
-          total_visitors: (existingDaily.total_visitors || 0) + 1,
-          page_views: (existingDaily.page_views || 0) + 1,
-          unique_visitors: isNew
-            ? (existingDaily.unique_visitors || 0) + 1
-            : existingDaily.unique_visitors || 0,
-          updated_at: new Date().toISOString(),
-        })
-        .eq('date', today);
-    } else {
-      await supabaseAdmin.from('visitor_stats_daily').insert({
-        date: today,
-        total_visitors: 1,
-        unique_visitors: 1,
-        page_views: 1,
-      });
-    }
-
-    // Upsert country stats
-    if (country !== 'Unknown') {
-      const { data: existingCountry } = await supabaseAdmin
-        .from('visitor_stats_country')
-        .select('*')
-        .eq('country', country)
-        .single();
-
-      if (existingCountry) {
-        await supabaseAdmin
-          .from('visitor_stats_country')
-          .update({
-            visitor_count: (existingCountry.visitor_count || 0) + 1,
-            last_visit: new Date().toISOString(),
-          })
-          .eq('country', country);
-      } else {
-        await supabaseAdmin.from('visitor_stats_country').insert({
-          country,
-          visitor_count: 1,
-        });
-      }
-    }
 
     return Response.json({ success: true });
   } catch (error) {

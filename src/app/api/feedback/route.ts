@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase';
+import { dbQuery } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
@@ -7,7 +7,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, subject, message } = body;
 
-    // Validate required fields
     if (!name || !email || !subject || !message) {
       return Response.json(
         { success: false, message: 'All fields are required: name, email, subject, message' },
@@ -15,7 +14,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return Response.json(
@@ -24,16 +22,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const { error } = await supabase.from('feedback_messages').insert({
-      name,
-      email,
-      subject,
-      message,
-      is_read: false,
-    });
+    const result = await dbQuery('submit_feedback', { name, email, subject, message });
 
-    if (error) {
-      console.error('Feedback insert error:', error);
+    if (result.error) {
+      console.error('Feedback insert error:', result.error);
       return Response.json(
         { success: false, message: 'Failed to submit feedback. Please try again.' },
         { status: 500 }
