@@ -266,23 +266,13 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#EDE8E0] via-[#F5F0E8] to-[#FAF8F5]" />
         <div className="geometric-pattern absolute inset-0 opacity-40" />
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <h2 className="animate-fade-in-up font-heading text-2xl font-bold sm:text-3xl lg:text-4xl">
-            Begin Your{" "}
-            <span className="text-[#8B1A2B]">Journey</span>
-          </h2>
           <p className="animate-fade-in-up delay-200 mt-4 font-body text-base sm:text-lg text-[#6B5E56]">
             Open the pages and discover the wisdom, beauty, and guidance of the Holy Quran.
           </p>
-          <div className="animate-fade-in-up delay-300 mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="#where-to-buy"
-              className="inline-flex items-center justify-center rounded-full bg-[#8B1A2B] px-10 py-4 font-ui text-sm font-semibold text-white shadow-lg shadow-[#8B1A2B]/20 transition-all hover:bg-[#A63244] hover:shadow-xl"
-            >
-              Get Your Copy
-            </a>
+          <div className="animate-fade-in-up delay-300 mt-8 flex justify-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-full border-2 border-[#C9A84C] px-10 py-4 font-ui text-sm font-semibold text-[#C9A84C] transition-all hover:bg-[#C9A84C] hover:text-white"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-8 py-4 font-ui text-lg font-semibold text-white shadow-lg shadow-emerald-600/25 transition-all hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-700/30"
             >
               Contact the Author
             </Link>
